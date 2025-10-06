@@ -30,6 +30,8 @@ class Solution {
     //     }
     //     return true;
     // }
+
+    // piyush //
     public boolean isPalindrome(String s){
         if(s.length()==1){
             return true;
