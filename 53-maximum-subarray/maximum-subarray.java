@@ -36,8 +36,8 @@ class Solution {
         int max=nums[0];
         int sum=0;
         for(int i=0;i<n;i++){
-            sum=nums[i]+sum;
-            max = sum > max ? sum : max;
+            sum = nums[i] + sum;
+            max = sum <max ? max : sum;
             sum = sum < 0 ? 0 : sum;
         }
         return max;
