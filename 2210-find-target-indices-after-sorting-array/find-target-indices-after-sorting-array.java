@@ -26,7 +26,7 @@ class Solution {
         if(e==target){
             tcount++;
         }
-        if(e<target){
+        else if(e<target){
             num++;
         }
     }
