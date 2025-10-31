@@ -19,14 +19,14 @@ class Solution {
 //         return ans;
 //    }
 
+// Piyush //
    public List<Integer> targetIndices(int[] nums, int target){
     int num=0;
     int tcount=0;
     for(int e : nums){
         if(e==target){
             tcount++;
-        }
-        else if(e<target){
+        }else if(e<target){
             num++;
         }
     }
