@@ -9,6 +9,7 @@ class Solution {
     //     return count;
     // }
 
+    // piyush //
     public int bulbSwitch(int n){
         int count=0;
         int i=1;
