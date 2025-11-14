@@ -18,6 +18,7 @@ class Solution {
     //     return ans;
     // }
 
+    // piyush //
     public int[] productExceptSelf(int[] nums){
         int n=nums.length;
         int[] right=new int [n];
