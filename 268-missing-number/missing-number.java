@@ -10,6 +10,8 @@ class Solution {
     //     return ans;
     // }
 
+    // piyush //
+    
     public int missingNumber(int[] nums){
         int n=nums.length;
         int actualSum=(n*(n+1))/2;
