@@ -9,6 +9,8 @@ class Solution {
     //     }
     //     return Total;
     // }
+
+    // piyush
     public int numWaterBottles(int numBottles, int numExchange){
         int Total=numBottles;
         while(numBottles>=numExchange){
