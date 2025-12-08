@@ -14,6 +14,8 @@ class Solution {
     //         return false;
     //     }
     // }
+
+    // piyush
     public boolean isPowerOfTwo(int n){
         if(n<1){
             return false;
