@@ -1,4 +1,4 @@
-class Solution {
+// class Solution {
     // public int majorityElement(int[] nums) {
     //     int n=nums.length;
     //     HashMap<Integer, Integer> map=new HashMap<>();
@@ -17,19 +17,39 @@ class Solution {
     //     return 0;
     // }
 
+
+    // piyush
+//     public int majorityElement(int[] nums){
+//         int count=0;
+//         int candidate=0;
+//         for(int num : nums){
+//             if(count==0){
+//                 candidate=num;
+//             }
+//             if(num==candidate){
+//                 count++;
+//             }else{
+//                 count--;
+//             }
+//         }
+//         return candidate;
+//     }
+// }
+
+class Solution{
     public int majorityElement(int[] nums){
-        int count=0;
-        int candidate=0;
+        int party=0;
+        int voters=0;
         for(int num : nums){
-            if(count==0){
-                candidate=num;
+            if(voters==0){
+                party=num;
             }
-            if(num==candidate){
-                count++;
+            if(num==party){
+                voters++;
             }else{
-                count--;
+                voters--;
             }
         }
-        return candidate;
+        return party;
     }
 }
