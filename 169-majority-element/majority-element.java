@@ -36,6 +36,7 @@
 //     }
 // }
 
+// piyush
 class Solution{
     public int majorityElement(int[] nums){
         int party=0;
