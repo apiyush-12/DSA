@@ -16,7 +16,7 @@ class Solution {
     //     return ans;
     // }
 
-    // piyush
+    // Piyush
     public int maxProfit(int [] prices){
         int buy=prices[0];
         int profit=0;
