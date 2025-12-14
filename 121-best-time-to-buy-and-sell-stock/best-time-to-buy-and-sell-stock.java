@@ -1,18 +1,31 @@
 // Piyush 
 class Solution {
-    public int maxProfit(int[] prices) {
-        int n=prices.length;
-        int []maxValue=new int[n];
+    // public int maxProfit(int[] prices) {
+    //     int n=prices.length;
+    //     int []maxValue=new int[n];
 
-        maxValue[n-1]=prices[n-1];
-        for(int i=n-2; i>=0; i--){
-            maxValue[i]=Math.max(maxValue[i+1],prices[i]);
+    //     maxValue[n-1]=prices[n-1];
+    //     for(int i=n-2; i>=0; i--){
+    //         maxValue[i]=Math.max(maxValue[i+1],prices[i]);
+    //     }
+    //     int ans=0;
+    //     for(int i=0; i<prices.length; i++){
+    //         int currPro=maxValue[i]-prices[i];
+    //         ans=Math.max(ans, currPro);
+    //     }
+    //     return ans;
+    // }
+
+    public int maxProfit(int [] prices){
+        int buy=prices[0];
+        int profit=0;
+        for(int i=1; i<prices.length; i++){
+            if(prices[i]<buy){
+                buy=prices[i];
+            }else if(prices[i]-buy>profit){
+                profit=prices[i]-buy;
+            }
         }
-        int ans=0;
-        for(int i=0; i<prices.length; i++){
-            int currPro=maxValue[i]-prices[i];
-            ans=Math.max(ans, currPro);
-        }
-        return ans;
+        return profit;
     }
 }
