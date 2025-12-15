@@ -1,7 +1,7 @@
 class Solution {
     public int jump(int[] nums) {
         int ans=0;
-        int end=0;     //counting for jump (each window)
+        int end=0;     //counting for jump (each window of nums)
         int farthest=0;
         for(int i=0; i<nums.length-1; i++){
             farthest = Math.max(farthest, nums[i]+i);
