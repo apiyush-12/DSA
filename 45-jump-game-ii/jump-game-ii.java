@@ -14,6 +14,6 @@ class Solution {
                 end=farthest;
             }
         }
-        return 0;
+        return ans;
     }
 }
