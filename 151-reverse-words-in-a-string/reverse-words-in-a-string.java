@@ -34,9 +34,9 @@
 //     }
 // }
 
+// piyush
 class Solution{
     public String reverseWords(String s){
-        if(s==null) return null;
         char[] arr=s.toCharArray();
         int n=arr.length;
         reverse(arr, 0, n-1);
