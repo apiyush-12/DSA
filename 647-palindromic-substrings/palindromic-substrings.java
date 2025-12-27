@@ -18,6 +18,8 @@
 //     }
 // }
 
+
+// piyush
 class Solution{
     public int countSubstrings(String s){
         int ans=0;
