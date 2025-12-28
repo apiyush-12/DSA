@@ -47,6 +47,7 @@
 //     }
 // }
 
+// piyush
 class Solution{
     public boolean canPartition(int[] nums){
         int totalSum=0;
