@@ -54,7 +54,6 @@ class Solution{
         for(int num : nums){
             totalSum+=num;
         }
-
         if(totalSum%2!=0){
             return false;
         }
