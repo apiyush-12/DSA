@@ -1,6 +1,29 @@
-class Solution {
-    public boolean canPartition(int[] nums) {
-        int totalSum=0;
+// class Solution {
+//     public boolean canPartition(int[] nums) {
+//         int totalSum=0;
+//         for(int num : nums){
+//             totalSum+=num;
+//         }
+//         if(totalSum%2!=0){
+//             return false;
+//         }
+//         int target=totalSum/2;
+//         boolean[] dp=new boolean[target+1];
+//         dp[0]=true;
+//         for(int num : nums){
+//             for(int i=target; i>=num; i--){
+//                 if(dp[i-num]){
+//                     dp[i]=true;
+//                 }
+//             }
+//         }
+//         return dp[target];
+//     }
+// }
+
+class Solution{
+    public boolean canPartition(int[] nums){
+         int totalSum=0;
         for(int num : nums){
             totalSum+=num;
         }
@@ -15,6 +38,9 @@ class Solution {
                 if(dp[i-num]){
                     dp[i]=true;
                 }
+            }
+            if(dp[target]){
+                return true;
             }
         }
         return dp[target];
