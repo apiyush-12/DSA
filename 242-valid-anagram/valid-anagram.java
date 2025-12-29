@@ -22,11 +22,11 @@ class Solution{
     public boolean isAnagram(String s, String t){
         int[] sA=new int[26];
         int[] tA=new int[26];
-        for(char a : s.toCharArray()){
-            sA[a-'a']++;
+        for(char c : s.toCharArray()){
+            sA[c-'a']++;
         }
-        for(char b : t.toCharArray()){
-            tA[b-'a']++;
+        for(char c : t.toCharArray()){
+            tA[c-'a']++;
         }
         return Arrays.equals(sA, tA);
     }
