@@ -1,18 +1,33 @@
-class Solution {
-    public boolean isAnagram(String s, String t) {
-        if(s.length()!=t.length()){
-            return false;
+// class Solution {
+//     public boolean isAnagram(String s, String t) {
+//         if(s.length()!=t.length()){
+//             return false;
+//         }
+//         int[] count=new int[26];
+//         for(int i=0; i<s.length(); i++){
+//             count[s.charAt(i)-'a']++;
+//             count[t.charAt(i)-'a']--;
+//         }
+//         for(int C : count){
+//             if(C!=0){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+// }
+
+
+class Solution{
+    public boolean isAnagram(String s, String t){
+        int[] sA=new int[26];
+        int[] tA=new int[26];
+        for(char a : s.toCharArray()){
+            sA[a-'a']++;
         }
-        int[] count=new int[26];
-        for(int i=0; i<s.length(); i++){
-            count[s.charAt(i)-'a']++;
-            count[t.charAt(i)-'a']--;
+        for(char b : t.toCharArray()){
+            tA[b-'a']++;
         }
-        for(int C : count){
-            if(C!=0){
-                return false;
-            }
-        }
-        return true;
+        return Arrays.equals(sA, tA);
     }
 }
