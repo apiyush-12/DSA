@@ -47,7 +47,6 @@ class  Solution{
             char[] ch=s.toCharArray();
             Arrays.sort(ch);
             String key=new String(ch);
-
             if(!ans.containsKey(key)){
                 ans.put(key, new ArrayList());
             }
