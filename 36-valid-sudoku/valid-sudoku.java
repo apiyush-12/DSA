@@ -35,38 +35,69 @@
 // }
 
 
-class Solution {
-    public boolean isValidSudoku(char[][] board) {
-        int N = 9;
+// class Solution {
+//     public boolean isValidSudoku(char[][] board) {
+//         int N = 9;
 
-        int[][] rows = new int[N][N];
-        int[][] cols = new int[N][N];
-        int[][] boxes = new int[N][N];
+//         int[][] rows = new int[N][N];
+//         int[][] cols = new int[N][N];
+//         int[][] boxes = new int[N][N];
         
-        for (int r = 0; r < N; r++) {
-            for (int c = 0; c < N; c++) {
-                if (board[r][c] == '.') continue;
+//         for (int r = 0; r < N; r++) {
+//             for (int c = 0; c < N; c++) {
+//                 if (board[r][c] == '.') continue;
 
-                int pos = board[r][c] - '1';
+//                 int pos = board[r][c] - '1';
 
-                if (rows[r][pos] == 1) {
-                    return false;
-                }
-                rows[r][pos] = 1;
+//                 if (rows[r][pos] == 1) {
+//                     return false;
+//                 }
+//                 rows[r][pos] = 1;
                 
-                if (cols[c][pos] == 1) {
-                    return false;
-                }
-                cols[c][pos] = 1;
+//                 if (cols[c][pos] == 1) {
+//                     return false;
+//                 }
+//                 cols[c][pos] = 1;
 
-                int idx = (r / 3) * 3 + c /3;
-                if (boxes[idx][pos] == 1) {
+//                 int idx = (r / 3) * 3 + c /3;
+//                 if (boxes[idx][pos] == 1) {
+//                     return false;
+//                 }
+//                 boxes[idx][pos] = 1;
+//             }
+//         }
+
+//         return true;
+//     }
+// }
+
+class Solution{
+    public boolean isValidSudoku(char[][] board){
+        int N=9;
+        int[][] rows=new int[N][N];
+        int[][] cols=new int[N][N];
+        int[][] boxes=new int[N][N];
+        for(int i=0; i<N; i++){
+            for(int j=0; j<N; j++){
+                if(board[i][j]=='.'){
+                    continue;
+                }
+                int pos=board[i][j]-'1';
+                if(rows[i][pos]==1){
                     return false;
                 }
-                boxes[idx][pos] = 1;
+                rows[i][pos]=1;
+                if(cols[j][pos]==1){
+                    return false;
+                }
+                cols[j][pos]=1;
+                int idx=i/3 * 3 + j/3;
+                if(boxes[idx][pos]==1){
+                    return false;
+                }
+                boxes[idx][pos]=1;
             }
         }
-
         return true;
     }
 }
