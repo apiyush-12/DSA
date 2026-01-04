@@ -1,3 +1,25 @@
+// class Solution {
+//     public int maxArea(int[] height) {
+//         int start=0;
+//         int end=height.length-1;
+//         int maxCap=0;
+//         while(start<end){
+//             int h=Math.min(height[start], height[end]);
+//             int width=end-start;
+//             int currCap=h*width;
+//             maxCap=Math.max(maxCap, currCap);
+//             if(height[start]<height[end]){
+//                 start++;
+//             }else{
+//                 end--;
+//             }
+//         }
+//         return maxCap;
+//     }
+// }
+
+// piyush
+
 class Solution {
     public int maxArea(int[] height) {
         int start=0;
@@ -7,7 +29,9 @@ class Solution {
             int h=Math.min(height[start], height[end]);
             int width=end-start;
             int currCap=h*width;
-            maxCap=Math.max(maxCap, currCap);
+            if(currCap>maxCap){
+                maxCap=currCap;
+            }
             if(height[start]<height[end]){
                 start++;
             }else{
