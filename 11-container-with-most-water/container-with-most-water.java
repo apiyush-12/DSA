@@ -7,9 +7,7 @@ class Solution {
             int h=Math.min(height[start], height[end]);
             int width=end-start;
             int currCap=h*width;
-            if(currCap>maxCap){
-                maxCap=currCap;
-            }
+            maxCap=Math.max(maxCap, currCap);
             if(height[start]<height[end]){
                 start++;
             }else{
