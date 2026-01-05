@@ -38,7 +38,9 @@ class Solution {
     public int characterReplacement(String s, int k) {
 
         char[] charArray = s.toCharArray();
-        int l = 0, max = 0, maxFreq = 0;
+        int l = 0;
+        int max = 0;
+        int maxFreq = 0;
         int[] array = new int[26];
         for(int r = 0; r < charArray.length; r++){
             array[charArray[r] - 'A']++;
