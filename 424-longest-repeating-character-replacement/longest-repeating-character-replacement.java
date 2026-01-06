@@ -36,43 +36,24 @@
 
 
 //piyush
-// class Solution {
-//     public int characterReplacement(String s, int k) {
+class Solution {
+    public int characterReplacement(String s, int k) {
 
-//         char[] charArray = s.toCharArray();
-//         int l = 0;
-//         int max = 0;
-//         int maxFreq = 0;
-//         int[] array = new int[26];
-//         for(int r = 0; r < charArray.length; r++){
-//             array[charArray[r] - 'A']++;
-//             maxFreq = Math.max(maxFreq, array[charArray[r] - 'A']);
-//             while(r - l + 1 - maxFreq > k){
-//                 array[charArray[l] - 'A']--;
-//                 l++;
-//             }
-//             max = Math.max(max, r-l+1);
-//         }
-//         return max;
-//     }
-// }
-
-class Solution{
-    public int characterReplacement(String s, int k){
-        int l=0;
-        int max=0;
-        int maxFreq=0;
-        char[] charA=s.toCharArray();
-        int [] freq=new int[26];
-        for(int r=0; r<s.length(); r++){
-            freq[charA[r]-'A']++;
-            maxFreq=Math.max(maxFreq, freq[charA[r]-'A']);
-            while(r-l+1 - maxFreq > k){
-                freq[charA[l]-'A']--;
+        char[] charArray = s.toCharArray();
+        int l = 0;
+        int max = 0;
+        int maxFreq = 0;
+        int[] array = new int[26];
+        for(int r = 0; r < charArray.length; r++){
+            array[charArray[r] - 'A']++;
+            maxFreq = Math.max(maxFreq, array[charArray[r] - 'A']);
+            while(r - l + 1 - maxFreq > k){
+                array[charArray[l] - 'A']--;
                 l++;
             }
-            max=Math.max(max, r-l+1);
+            max = Math.max(max, r-l+1);
         }
         return max;
     }
 }
+
