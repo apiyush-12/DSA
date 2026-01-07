@@ -1,12 +1,4 @@
 class Solution {
-    static {
-    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-        try (java.io.FileWriter fw = new java.io.FileWriter("display_runtime.txt")) {
-            fw.write("0");
-        } catch (Exception e) {
-        }
-    }));
-        }
     public String minWindow(String s, String t) {
         if(s.length()==0 || t.length()==0 || s.length()<t.length()){
             return "";
