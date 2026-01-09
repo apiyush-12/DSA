@@ -1,62 +1,38 @@
 class MinStack {
-    //     private Stack<Integer> st;
-    //     private Stack<Integer> min;
-    // public MinStack() {
-    //     st=new Stack<>();
-    //     min=new Stack<>();
-    // }
-    
-    // public void push(int val) {
-    //     if(st.size()==0||min.peek()>=val){
-    //         min.push(val);
-    //     }
-    //     st.push(val);
-    // }
-    
-    // public void pop() {
-    //     int ele1=st.pop();
-    //     int ele2=min.peek();
-    //     if(ele1==ele2){
-    //         min.pop();
-    //     }
-    // }
-    
-    // public int top() {
-    //     return st.peek();
-    // }
-    
-    // public int getMin() {
-    //     return min.peek();
-    // }
+    private Node head;
 
-    // piyush //
-    private Stack<Integer> st;
-    private Stack<Integer> min;
-    public MinStack(){
-        st = new Stack<>();
-        min = new Stack<>();
+    public MinStack() {
+        
     }
-    public void push(int val){
-        if(st.size()==0 || min.peek()>=val){
-            min.push(val);
-        }
-        st.push(val);
-    }
-
-    public void pop(){
-        int ele1 = min.peek();
-        int ele2 = st.pop();
-        if(ele1==ele2){
-            min.pop();
+    
+    public void push(int val) {
+        if(head==null){
+            head=new Node(val, val, null);
+        }else{
+            head=new Node(val, Math.min(val, head.min), head);
         }
     }
-
-    public int top(){
-        return st.peek();
+    
+    public void pop() {
+        head=head.next;
     }
-
-    public int getMin(){
-        return min.peek();
+    
+    public int top() {
+        return head.val;
+    }
+    
+    public int getMin() {
+        return head.min;
+    }
+    private class Node{
+        int val;
+        int min;
+        Node next;
+        Node(int val, int min, Node next){  //constructor to store the value
+            this.val=val;
+            this.min=min;
+            this.next=next;
+        }
     }
 }
 
