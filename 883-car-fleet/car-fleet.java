@@ -30,7 +30,7 @@ class Solution{
         }
         Arrays.sort(position);
         for(int i=n-1; i>=0; i--){
-            double time=(double)(target-position[i])/hs.get(position[i]);
+            double time=((double)target-position[i])/(hs.get(position[i]));
             if(st.isEmpty() || time> st.peek()){
                 st.add(time);
             }
