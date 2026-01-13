@@ -17,33 +17,27 @@
 // }
 
 // piyush
-class Solution {
-    public static int largestRectangleArea(int[] heights) {
-        int maxArea = 0;
-        Deque<int[]> stack = new ArrayDeque<>(); 
-
-        for (int i = 0; i < heights.length; i++) {
-            int start = i;
-
-            
-            while (!stack.isEmpty() && heights[i] < stack.peek()[0]) {
-                int[] top = stack.pop();
-                int height = top[0];
-                int index = top[1];
-                maxArea = Math.max(maxArea, height * (i - index));
-                start = index; 
+class Solution{
+    public int largestRectangleArea(int [] heights){
+        int maxArea=0;
+        Deque<int[]> stack=new ArrayDeque<>();
+        for(int i=0; i<heights.length; i++){
+            int start=i;
+            while(!stack.isEmpty() && heights[i]<stack.peek()[0]){
+                int[] top=stack.pop();
+                int height=top[0];
+                int index=top[1];
+                maxArea=Math.max(maxArea, height*(i-index));
+                start=index;
             }
-
             stack.push(new int[]{heights[i], start});
         }
-
-          while (!stack.isEmpty()) {
-            int[] top = stack.pop();
-            int height = top[0];
-            int index = top[1];
-            maxArea = Math.max(maxArea, height * (heights.length - index));
+        while(!stack.isEmpty()){
+            int [] top=stack.pop();
+            int height=top[0];
+            int index=top[1];
+            maxArea=Math.max(maxArea, height*(heights.length-index));
         }
-
         return maxArea;
     }
 }
