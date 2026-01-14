@@ -37,7 +37,7 @@ class Solution{
             int mid=(right+left)/2;
             int time=0;
             for(int i=0; i<n; i++){
-                time += ((piles[i])-1)/mid +1;
+                time += ((piles[i]-1)/mid) +1;
             }
             if(time>h){
                 left=mid+1;
