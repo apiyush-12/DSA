@@ -41,9 +41,6 @@
 // piyush
 class Solution{
     public void reorderList(ListNode head){
-        if(head==null){
-            return;
-        }
         ListNode slow=head, fast=head;
         while(fast!=null && fast.next!=null){
             slow=slow.next;
