@@ -9,28 +9,20 @@
  * }
  */
 class Solution {
-    // piyush //
     public ListNode mergeKLists(ListNode[] lists) {
-        if(lists.length==0){
-            return null;
-        }else if(lists.length==1){
-            return lists[0];
-        }
-        PriorityQueue<ListNode> pq=new PriorityQueue<>((a,b)->a.val-b.val);
-        for(int i=0; i<lists.length; i++){
-            ListNode temphead=lists[i];
-            while(temphead!=null){
-                pq.add(temphead);
-                temphead=temphead.next;
+        PriorityQueue<Integer> minHeap=new PriorityQueue<>();
+        for(ListNode list : lists){
+            while(list!=null){
+                minHeap.add(list.val);
+                list=list.next;
             }
         }
-        ListNode dummy=new ListNode(-1);
-        ListNode ans=dummy;
-        while(pq.size()>0){
-            dummy.next=pq.remove();
-            dummy=dummy.next;
+        ListNode dummy=new ListNode(1);
+        ListNode merge=dummy;
+        while(!minHeap.isEmpty()){
+            merge.next=new ListNode(minHeap.remove());
+            merge=merge.next;
         }
-        dummy.next=null;
-        return ans.next;
+        return dummy.next;
     }
 }
