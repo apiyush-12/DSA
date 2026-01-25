@@ -43,7 +43,6 @@ class Solution{
         }
         int leftH=getH(root.left);
         int rightH=getH(root.right);
-
         if(Math.abs(leftH-rightH)>1){
             return false;
         }
