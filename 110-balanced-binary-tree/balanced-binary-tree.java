@@ -13,36 +13,14 @@
  *     }
  * }
  */
-// class Solution {
-//     public boolean isBalanced(TreeNode root) {
-//         if(root==null){
-//             return true;
-//         }
-//         int leftH=getH(root.left);
-//         int rightH=getH(root.right);
-
-//         if(Math.abs(leftH-rightH)>1){
-//             return false;
-//         }
-//         return isBalanced(root.left) && isBalanced(root.right);
-//     }
-//     private int getH(TreeNode node){
-//         if(node==null){
-//             return 0;
-//         }
-//         int left=getH(node.left);
-//         int right=getH(node.right);
-//         return Math.max(left, right)+1;
-//     }
-// }
-
-class Solution{
-    public boolean isBalanced(TreeNode root){
+class Solution {
+    public boolean isBalanced(TreeNode root) {
         if(root==null){
             return true;
         }
         int leftH=getH(root.left);
         int rightH=getH(root.right);
+
         if(Math.abs(leftH-rightH)>1){
             return false;
         }
@@ -54,6 +32,28 @@ class Solution{
         }
         int left=getH(node.left);
         int right=getH(node.right);
-        return Math.max(left, right) +1;
+        return Math.max(left, right)+1;
     }
 }
+
+// class Solution{
+//     public boolean isBalanced(TreeNode root){
+//         if(root==null){
+//             return true;
+//         }
+//         int leftH=getH(root.left);
+//         int rightH=getH(root.right);
+//         if(Math.abs(leftH-rightH)>1){
+//             return false;
+//         }
+//         return isBalanced(root.left) && isBalanced(root.right);
+//     }
+//     private int getH(TreeNode node){
+//         if(node==null){
+//             return 0;
+//         }
+//         int left=getH(node.left);
+//         int right=getH(node.right);
+//         return Math.max(left, right) +1;
+//     }
+// }
