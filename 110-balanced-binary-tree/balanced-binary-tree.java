@@ -53,8 +53,8 @@ class Solution{
         if(node==null){
             return 0;
         }
-        int leftH=getH(node.left);
-        int rightH=getH(node.right);
-        return Math.max(leftH, rightH) +1;
+        int left=getH(node.left);
+        int right=getH(node.right);
+        return Math.max(left, right) +1;
     }
 }
