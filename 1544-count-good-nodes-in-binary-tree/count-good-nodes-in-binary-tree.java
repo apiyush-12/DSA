@@ -17,7 +17,7 @@ class Solution {
     public int goodNodes(TreeNode root) {
         return countGoodNodes(root, Integer.MIN_VALUE);
     }
-    public int countGoodNodes(TreeNode node, int max){
+    private int countGoodNodes(TreeNode node, int max){
         if(node==null){
             return 0;
         }
