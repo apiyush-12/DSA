@@ -27,36 +27,35 @@
 
 
 // piyush
-// class Solution{
-//     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
-//         if(root==null){
-//             return null;
-//         }
-//         TreeNode temp=root;
-//         while(temp!=null){
-//             if(temp.val>p.val && temp.val>q.val){
-//                 temp=temp.left;
-//             }else if(temp.val<p.val && temp.val<q.val){
-//                 temp=temp.right;
-//             }else{
-//                 break;
-//             }
-//         }
-//         return temp;
-//     }
-// }
-
-class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        while (root != null) {
-            if (p.val > root.val && q.val > root.val) {
-                root = root.right;
-            } else if (p.val < root.val && q.val < root.val) {
-                root = root.left;
-            } else {
-                return root;
+class Solution{
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
+        if(root==null){
+            return null;
+        }
+        while(root!=null){
+            if(root.val>p.val && root.val>q.val){
+                root=root.left;
+            }else if(root.val<p.val && root.val<q.val){
+                root=root.right;
+            }else{
+                break;
             }
         }
-        return null;
+        return root;
     }
 }
+
+// class Solution {
+//     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//         while (root != null) {
+//             if (p.val > root.val && q.val > root.val) {
+//                 root = root.right;
+//             } else if (p.val < root.val && q.val < root.val) {
+//                 root = root.left;
+//             } else {
+//                 return root;
+//             }
+//         }
+//         return null;
+//     }
+// }
