@@ -34,11 +34,9 @@ class Solution{
         while(temp!=null){
             if(temp.val>p.val && temp.val>q.val){
                 temp=temp.left;
-            }
-            else if(temp.val<p.val && temp.val<q.val){
+            }else if(temp.val<p.val && temp.val<q.val){
                 temp=temp.right;
-            }
-            else{
+            }else{
                 break;
             }
         }
