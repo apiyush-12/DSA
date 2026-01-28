@@ -29,6 +29,30 @@
 //     }
 // }
 
+// class Solution{
+//     int count=0;
+//     int ans=0;
+//     public int kthSmallest(TreeNode root, int k){
+//         helper(root, k);
+//         return ans;
+//     }
+//     public void helper(TreeNode root, int k){
+//         if(root==null){
+//             return;
+//         }
+//         if(count>=k){
+//             return;
+//         }
+//         helper(root.left, k);
+//         count=count+1;
+//         if(count==k){
+//             ans=root.val;
+//             return;
+//         }
+//         helper(root.right, k);
+//     }
+// }
+
 class Solution{
     int count=0;
     int ans=0;
@@ -51,4 +75,5 @@ class Solution{
         }
         helper(root.right, k);
     }
+
 }
