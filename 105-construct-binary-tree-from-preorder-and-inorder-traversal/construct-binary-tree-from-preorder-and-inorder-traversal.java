@@ -13,13 +13,37 @@
  *     }
  * }
  */
-class Solution {
+// class Solution {
+//     int preorderIndex;
+//     Map<Integer, Integer> inorderIndexMap;
+//     public TreeNode buildTree(int[] preorder, int[] inorder) {
+//         preorderIndex=0;
+//         inorderIndexMap=new HashMap<>();
+//         for(int i=0; i<inorder.length; i++){
+//             inorderIndexMap.put(inorder[i], i);
+//         }
+//         return arrayToTree(preorder, 0, preorder.length-1);
+//     }
+//     public TreeNode arrayToTree(int[] preorder, int left, int right){
+//         if(left>right){
+//             return null;
+//         }
+//         int rootValue=preorder[preorderIndex++];
+//         TreeNode root=new TreeNode(rootValue);
+//         int splitIndex=inorderIndexMap.get(rootValue);
+//         root.left=arrayToTree(preorder, left, splitIndex-1);
+//         root.right=arrayToTree(preorder, splitIndex+1, right);
+//         return root;
+//     }
+// }
+
+class Solution{
     int preorderIndex;
     Map<Integer, Integer> inorderIndexMap;
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public TreeNode buildTree(int[] preorder, int[] inorder){
         preorderIndex=0;
         inorderIndexMap=new HashMap<>();
-        for(int i=0; i<inorder.length; i++){
+        for(int i=0; i<=preorder.length-1; i++){
             inorderIndexMap.put(inorder[i], i);
         }
         return arrayToTree(preorder, 0, preorder.length-1);
@@ -30,9 +54,9 @@ class Solution {
         }
         int rootValue=preorder[preorderIndex++];
         TreeNode root=new TreeNode(rootValue);
-        int splitIndex=inorderIndexMap.get(rootValue);
-        root.left=arrayToTree(preorder, left, splitIndex-1);
-        root.right=arrayToTree(preorder, splitIndex+1, right);
+        int splitValue=inorderIndexMap.get(rootValue);
+        root.left=arrayToTree(preorder, left, splitValue-1);
+        root.right=arrayToTree(preorder, splitValue+1, right);
         return root;
     }
 }
