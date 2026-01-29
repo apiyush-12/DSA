@@ -30,8 +30,9 @@ class Solution {
         }
         int rootValue=preorder[preorderIndex++];
         TreeNode root=new TreeNode(rootValue);
-        root.left=arrayToTree(preorder, left, inorderIndexMap.get(rootValue)-1);
-        root.right=arrayToTree(preorder, inorderIndexMap.get(rootValue)+1, right);
+        int splitIndex=inorderIndexMap.get(rootValue);
+        root.left=arrayToTree(preorder, left, splitIndex-1);
+        root.right=arrayToTree(preorder, splitIndex+1, right);
         return root;
     }
 }
