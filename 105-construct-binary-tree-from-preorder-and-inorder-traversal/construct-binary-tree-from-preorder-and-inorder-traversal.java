@@ -28,8 +28,7 @@ class Solution {
         if(left>right){
             return null;
         }
-        int rootValue=preorder[preorderIndex];
-        preorderIndex++;
+        int rootValue=preorder[preorderIndex++];
         TreeNode root=new TreeNode(rootValue);
         root.left=arrayToTree(preorder, left, inorderIndexMap.get(rootValue)-1);
         root.right=arrayToTree(preorder, inorderIndexMap.get(rootValue)+1, right);
