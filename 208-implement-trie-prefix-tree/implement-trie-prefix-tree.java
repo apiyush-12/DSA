@@ -65,8 +65,7 @@ class Trie {
     }
     
     public boolean startsWith(String prefix) {
-        TrieNode node=searchPrefix(prefix);
-        return node!=null;
+        return searchPrefix(prefix)!=null;
     }
 }
 
