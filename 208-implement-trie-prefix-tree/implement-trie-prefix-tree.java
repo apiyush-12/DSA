@@ -30,12 +30,12 @@ class TrieNode{
         isEnd=false;
     }
 }
+
 class Trie {
     private TrieNode root;
     public Trie() {
         root=new TrieNode();
     }
-    
     public void insert(String word) {
         TrieNode node=root;
         for(char c : word.toCharArray()){
