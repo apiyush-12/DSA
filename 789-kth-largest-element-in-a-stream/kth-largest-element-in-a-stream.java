@@ -33,7 +33,6 @@
     public KthLargest(int k, int[] nums){
         this.k=k;
         this.pq=new PriorityQueue<>();
-
         for(int num : nums){
             add(num);
         }
