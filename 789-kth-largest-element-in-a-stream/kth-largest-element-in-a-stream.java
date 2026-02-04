@@ -33,17 +33,15 @@
     int k;
     public KthLargest(int k, int[] nums){
         this.k=k;
-        this.pq=new PriorityQueue<>(k);
+        this.pq=new PriorityQueue<>();
         for(int num : nums){
             add(num);
         }
     }
     public int add(int val){
-        if(pq.size()<k){
-        pq.add(val); }
-        else if(val>pq.peek()){
+        pq.add(val);
+        if(pq.size()>k){
             pq.poll();
-            pq.offer(val);
         }
         return pq.peek();
     }
