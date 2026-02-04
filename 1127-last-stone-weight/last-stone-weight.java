@@ -5,8 +5,8 @@ class Solution {
             pq.add(stone);
         }
         while(pq.size()>1){
-            int max=pq.remove();
-            int smax=pq.remove();
+            int max=pq.poll();
+            int smax=pq.poll();
             int nStone=max-smax;
             if(nStone!=0){
                 pq.add(nStone);
