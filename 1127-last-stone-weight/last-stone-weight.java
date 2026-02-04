@@ -16,7 +16,7 @@ class Solution {
             return 0;
         }
         else{
-           return pq.remove();
+           return pq.peek();
         }   
     }
 }
