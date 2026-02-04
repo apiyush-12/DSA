@@ -1,44 +1,22 @@
 class Solution {
-    // public int lastStoneWeight(int[] stones) {
-    //     PriorityQueue<Integer> pq= new PriorityQueue<>(Collections.reverseOrder());
-    //     for(int ele: stones){
-    //         pq.add(ele);
-    //     }
-    //     while(pq.size()>1){
-    //         int max=pq.remove();
-    //         int smax=pq.remove();
-
-    //         int nstone=max-smax;
-    //         if(nstone!=0){
-    //             pq.add(nstone);
-    //         }
-    //     }
-    //     if(pq.size()==0){
-    //         return 0;
-    //     }else{
-    //         return pq.remove();
-    //     }
-    // }
-
-    // piyush //
-    public int lastStoneWeight(int[] stones){
+    public int lastStoneWeight(int[] stones) {
         PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
-        for(int ele:stones){
-            pq.add(ele);
+        for(int stone : stones){
+            pq.add(stone);
         }
         while(pq.size()>1){
             int max=pq.remove();
             int smax=pq.remove();
-
-            int nstone=max-smax;
-            if(nstone!=0){
-                pq.add(nstone);
+            int nStone=max-smax;
+            if(nStone!=0){
+                pq.add(nStone);
             }
-        }
+        }    
         if(pq.size()==0){
             return 0;
-        }else{
-            return pq.remove();
         }
+        else{
+           return pq.remove();
+        }   
     }
 }
