@@ -26,21 +26,24 @@
  * int param_1 = obj.add(val);
  */
 
+
 // piyush
  class KthLargest{
     PriorityQueue<Integer> pq;
     int k;
     public KthLargest(int k, int[] nums){
         this.k=k;
-        this.pq=new PriorityQueue<>();
+        this.pq=new PriorityQueue<>(k);
         for(int num : nums){
             add(num);
         }
     }
     public int add(int val){
-        pq.add(val);
-        if(pq.size()>k){
+        if(pq.size()<k){
+        pq.add(val); }
+        else if(val>pq.peek()){
             pq.poll();
+            pq.offer(val);
         }
         return pq.peek();
     }
