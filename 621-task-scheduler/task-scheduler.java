@@ -58,8 +58,11 @@ class Solution{
             freq[task-'A']++;
         }
         int maxFreq=0;
-        for(int i=0; i<freq.length; i++){
-            maxFreq=Math.max(maxFreq, freq[i]);
+        // for(int i=0; i<freq.length; i++){
+        //     maxFreq=Math.max(maxFreq, freq[i]);
+        // }
+        for(int f : freq){
+            maxFreq=Math.max(maxFreq, f);
         }
         int maxCount=0;
         for(int f : freq){
