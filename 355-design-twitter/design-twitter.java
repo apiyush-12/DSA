@@ -1,4 +1,6 @@
 class Twitter {
+
+    // Using DS : HashSet, HashMap, LinkedList, PriorityQueue
     private static int timeStamp=0;
     private class User{
         int id;
