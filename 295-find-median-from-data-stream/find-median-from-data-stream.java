@@ -29,12 +29,10 @@
 class MedianFinder {
     private PriorityQueue<Integer> maxH; 
     private PriorityQueue<Integer> minH; 
-
     public MedianFinder() {
         maxH = new PriorityQueue<>((a, b) -> b - a);
         minH = new PriorityQueue<>();
     }
-
     public void addNum(int num) {
         if (maxH.isEmpty() || num <= maxH.peek()) {
             maxH.offer(num);
@@ -48,14 +46,13 @@ class MedianFinder {
             maxH.offer(minH.poll());
         }
     }
-
     public double findMedian() {
+        return maxH.size() > minH.size() ? maxH.peek() : (maxH.peek() + minH.peek()) / 2.0;
+        // if (maxH.size() > minH.size()) {
+        //     return maxH.peek();
+        // }
 
-        if (maxH.size() > minH.size()) {
-            return maxH.peek();
-        }
-
-        return (maxH.peek() + minH.peek()) / 2.0;
+        // return (maxH.peek() + minH.peek()) / 2.0;
     }
 }
 
