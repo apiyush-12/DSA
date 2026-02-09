@@ -14,7 +14,7 @@ class MedianFinder {
     }
     
     public double findMedian() {
-        return maxH.size() > minH.size() ? maxH.peek() : (maxH.peek() + minH.peek())*0.5;
+        return maxH.size() > minH.size() ? maxH.peek() : (maxH.peek() + minH.peek())/2.0;
     }
 }
 
