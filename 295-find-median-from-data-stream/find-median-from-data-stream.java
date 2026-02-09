@@ -25,11 +25,10 @@
  * double param_2 = obj.findMedian();
  */
 
-
- class MedianFinder {
-
-    private PriorityQueue<Integer> maxH; // smaller half (max heap)
-    private PriorityQueue<Integer> minH; // larger half (min heap)
+// piyush
+class MedianFinder {
+    private PriorityQueue<Integer> maxH; 
+    private PriorityQueue<Integer> minH; 
 
     public MedianFinder() {
         maxH = new PriorityQueue<>((a, b) -> b - a);
@@ -42,7 +41,7 @@
         } else {
             minH.offer(num);
         }
-        if (maxH.size() > minH.size() + 1) {
+        if (maxH.size() > minH.size() + 1) {    //check balance
             minH.offer(maxH.poll());
         } 
         else if (minH.size() > maxH.size()) {
@@ -59,3 +58,4 @@
         return (maxH.peek() + minH.peek()) / 2.0;
     }
 }
+
