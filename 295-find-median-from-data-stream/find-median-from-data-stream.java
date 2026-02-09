@@ -47,12 +47,12 @@ class MedianFinder {
         }
     }
     public double findMedian() {
-        return maxH.size() > minH.size() ? maxH.peek() : (maxH.peek() + minH.peek()) / 2.0;
-        // if (maxH.size() > minH.size()) {
-        //     return maxH.peek();
-        // }
+        // return maxH.size() > minH.size() ? maxH.peek() : (maxH.peek() + minH.peek()) / 2.0;
+        if (maxH.size() > minH.size()) {
+            return maxH.peek();
+        }
 
-        // return (maxH.peek() + minH.peek()) / 2.0;
+        return (maxH.peek() + minH.peek()) / 2.0;
     }
 }
 
