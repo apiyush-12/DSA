@@ -85,11 +85,9 @@
 
 // piyush--------------Revision
 class MedianFinder{
-    PriorityQueue<Integer> maxH;
-    PriorityQueue<Integer> minH;
+    PriorityQueue<Integer> maxH =new PriorityQueue<>((a, b) -> b-a);;
+    PriorityQueue<Integer> minH = new PriorityQueue<>();
     public MedianFinder(){
-        maxH=new PriorityQueue<>((a, b) -> b-a);
-        minH=new PriorityQueue<>();
     }
     public void addNum(int num){
         if(maxH.isEmpty() || num<maxH.peek()){
