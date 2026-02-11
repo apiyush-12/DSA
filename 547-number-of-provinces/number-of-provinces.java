@@ -5,8 +5,8 @@ class Solution {
         int count=0;
         for(int i=0; i<n; i++){
             if(!visited[i]){
-                dfs(i, isConnected, visited);
                 count++;
+                dfs(i, isConnected, visited);
             }
         }
         return count;
