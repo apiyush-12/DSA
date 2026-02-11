@@ -36,8 +36,9 @@ public:
 
     for(int i =0 ; i<m ; i++ ){
         if(!vis[i]){
-            dfs(i, isConnected, vis, adj );
             count++;
+            dfs(i, isConnected, vis, adj );
+          
             
         }
     }
