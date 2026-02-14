@@ -39,6 +39,8 @@
 //     }
 // }
 
+
+// piyush
 class Solution {
     private boolean find(char[][]board, String words, int indx, int r, int c) {
         if(r<0 || r>=board.length || c<0 || c>=board[0].length || words.charAt(indx) != board[r][c])
@@ -47,16 +49,10 @@ class Solution {
 
         char cur = board[r][c];
         board[r][c] = '#';
-
-        boolean found = find(board, words, indx+1, r+1, c) ||
-        find(board, words, indx+1, r, c+1) ||
-        find(board, words, indx+1, r-1, c) ||
-        find(board, words, indx+1, r, c-1);
-
+        boolean found = find(board, words, indx+1, r+1, c) || find(board, words, indx+1, r, c+1) || find(board, words, indx+1, r-1, c) || find(board, words, indx+1, r, c-1);
         board[r][c] = cur;
         return found;        
     }
-
     public boolean exist(char[][] board, String word) {
         int m = board.length, n= board[0].length;
 
