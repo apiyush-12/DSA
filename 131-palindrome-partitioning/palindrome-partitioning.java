@@ -9,7 +9,6 @@ class Solution {
             result.add(new ArrayList(curr));
             return;
         }
-
         for(int end=start; end<s.length(); end++){
             if(isPalindrome(s, start, end)){
                 curr.add(s.substring(start, end+1));
@@ -18,7 +17,6 @@ class Solution {
             }
         }
     }
-
     private boolean isPalindrome(String s, int start, int end){
         while(start<end){
             if(s.charAt(start++)!=s.charAt(end--)){
