@@ -22,27 +22,52 @@
 
 
 
-class Solution{
-    // piyush
-      String[] digitMap = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+// class Solution{
+//     // piyush
+//       String[] digitMap = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
+//     public List<String> letterCombinations(String digits){
+//         List<String> res=new ArrayList<>();
+//         StringBuilder path=new StringBuilder();
+//         backTrack(digits, res, path, 0);
+//         return res;
+//     }
+//     private void backTrack(String digits, List<String> res, StringBuilder path, int i){
+//         if(i==digits.length()){
+//             String p=path.toString();
+//             res.add(p);
+//             return;
+//         }
+//         int digit=digits.charAt(i)-'0';
+//         String chars=digitMap[digit];
+//         for(char ch: chars.toCharArray()){
+//             path.append(ch);
+//             backTrack(digits, res, path, i+1);
+//             path.deleteCharAt(path.length()-1);
+//         }
+//     }
+// }
+
+
+class Solution{
+    String[] digitMap={"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits){
-        List<String> res=new ArrayList<>();
+        List<String> ans=new ArrayList<>();
         StringBuilder path=new StringBuilder();
-        backTrack(digits, res, path, 0);
-        return res;
+        backTrack(ans, path, digits, 0);
+        return ans;
     }
-    private void backTrack(String digits, List<String> res, StringBuilder path, int i){
+    private void backTrack(List<String> ans, StringBuilder path, String digits, int i){
         if(i==digits.length()){
             String p=path.toString();
-            res.add(p);
+            ans.add(p);
             return;
         }
         int digit=digits.charAt(i)-'0';
         String chars=digitMap[digit];
-        for(char ch: chars.toCharArray()){
+        for(char ch : chars.toCharArray()){
             path.append(ch);
-            backTrack(digits, res, path, i+1);
+            backTrack(ans, path, digits, i+1);
             path.deleteCharAt(path.length()-1);
         }
     }
