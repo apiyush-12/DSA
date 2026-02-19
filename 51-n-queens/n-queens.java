@@ -76,7 +76,6 @@ class Solution{
             result.add(board);
             return;
         }
-
         for(int col=0; col<n; col++){
             int d1=row-col+n-1;
             int d2=row+col;
