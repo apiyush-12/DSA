@@ -94,6 +94,7 @@
 // }
 
 class Solution{
+    // piyush
     public List<List<String>> solveNQueens(int n){
         List<List<String>> result=new ArrayList<>();
         int[] queens=new int[n];
@@ -103,6 +104,7 @@ class Solution{
         backTrack(result, queens, 0, n, cols, diag1, diag2);
         return result;
     }
+
     private void backTrack(List<List<String>> result, int[] queens, int row, int n, boolean[] cols, boolean[] diag1, boolean[] diag2){
         if(row==n){
             List<String> board=new ArrayList<>();
