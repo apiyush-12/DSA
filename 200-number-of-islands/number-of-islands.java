@@ -25,6 +25,8 @@
 //     }
 // }
 
+
+//2nd Method-----Same way but diff style
 class Solution{
     int m, n;
     public int numIslands(char[][] grid){
