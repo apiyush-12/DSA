@@ -46,11 +46,11 @@ class Solution {
         if (map.containsKey(node)) {
             return map.get(node);
         }
-        Node clone = new Node(node.val, new ArrayList<>());
-        map.put(node, clone);
+        Node cloneNode = new Node(node.val, new ArrayList<>());
+        map.put(node, cloneNode);
         for (Node neighbor : node.neighbors) {
-            clone.neighbors.add(cloneGraph(neighbor));
+            cloneNode.neighbors.add(cloneGraph(neighbor));
         }
-        return clone;
+        return cloneNode;
     }
 }
