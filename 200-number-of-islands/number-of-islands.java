@@ -27,6 +27,35 @@
 
 
 //2nd Method-----Same way but diff style
+// class Solution{
+//     int m, n;
+//     public int numIslands(char[][] grid){
+//         m=grid.length;
+//         n=grid[0].length;
+//         int islands=0;
+//         for(int r=0; r<m; r++){
+//             for(int c=0; c<n; c++){
+//                 if(grid[r][c]=='1'){
+//                     islands++;
+//                     dfs(grid, r, c);
+//                 }
+//             }
+//         }
+//         return islands;
+//     }
+    
+//     private void dfs(char[][] grid, int row, int col){
+//         if(row<0 || row>=m || col<0 || col>=n || grid[row][col]=='0') return;
+//         grid[row][col]='0';
+//         dfs(grid, row+1, col);
+//         dfs(grid, row, col+1);
+//         dfs(grid, row-1, col);
+//         dfs(grid, row, col-1);
+//     }
+// }
+
+
+
 class Solution{
     int m, n;
     public int numIslands(char[][] grid){
@@ -37,19 +66,20 @@ class Solution{
             for(int c=0; c<n; c++){
                 if(grid[r][c]=='1'){
                     islands++;
-                    dfs(grid, r, c);
+                    dfs(r, c, grid);
                 }
             }
         }
         return islands;
     }
-    
-    private void dfs(char[][] grid, int row, int col){
-        if(row<0 || row>=m || col<0 || col>=n || grid[row][col]=='0') return;
+    private void dfs(int row, int col, char[][] grid){
+        if(row<0 || row>=m || col<0 || col>=n || grid[row][col]=='0'){
+            return;
+        }
         grid[row][col]='0';
-        dfs(grid, row+1, col);
-        dfs(grid, row, col+1);
-        dfs(grid, row-1, col);
-        dfs(grid, row, col-1);
+        dfs(row+1, col, grid);
+        dfs(row, col+1, grid);
+        dfs(row-1, col, grid);
+        dfs(row, col-1, grid);
     }
 }
