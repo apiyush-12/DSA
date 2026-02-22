@@ -38,20 +38,39 @@ class Node {
 
 
 // piyush
-class Solution {
-    Map<Node, Node> map = new HashMap<>();
-    public Node cloneGraph(Node node) {
-        if (node == null) {
-            return null;
+// class Solution {
+//     Map<Node, Node> map = new HashMap<>();
+//     public Node cloneGraph(Node node) {
+//         if (node == null) {
+//             return null;
+//         }
+//         if (map.containsKey(node)) {
+//             return map.get(node);
+//         }
+//         Node cloneNode = new Node(node.val, new ArrayList<>());
+//         map.put(node, cloneNode);
+//         for (Node neighbor : node.neighbors) {
+//             cloneNode.neighbors.add(cloneGraph(neighbor));
+//         }
+//         return cloneNode;
+//     }
+// }
+
+
+class Solution{
+    Map<Node, Node> map=new HashMap<>();
+    public Node cloneGraph(Node node){
+        if(node==null){
+            return node;
         }
-        if (map.containsKey(node)) {
+        if(map.containsKey(node)){
             return map.get(node);
         }
-        Node cloneNode = new Node(node.val, new ArrayList<>());
-        map.put(node, cloneNode);
-        for (Node neighbor : node.neighbors) {
-            cloneNode.neighbors.add(cloneGraph(neighbor));
+        Node clone = new Node(node.val, new ArrayList<>());
+        map.put(node, clone);
+        for(Node neighbor : node.neighbors){
+            clone.neighbors.add(cloneGraph(neighbor));
         }
-        return cloneNode;
+        return clone;
     }
 }
