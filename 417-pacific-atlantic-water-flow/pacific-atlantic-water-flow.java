@@ -7,17 +7,14 @@ class Solution {
         int col=heights[0].length;
         boolean[][] pacificReachable = new boolean[row][col];
         boolean[][] atlanticReachable = new boolean[row][col];
-
         for(int i=0; i<row; i++){
             dfs(i, 0, pacificReachable, heights);
             dfs(i, col-1, atlanticReachable, heights);
         }
-
         for(int i=0; i<col; i++){
             dfs(0, i, pacificReachable, heights);
             dfs(row-1, i, atlanticReachable, heights);
         }
-
         List<List<Integer>> result = new ArrayList<>();
         for(int i=0; i<row; i++){
             for(int j=0; j<col; j++){
@@ -35,7 +32,6 @@ class Solution {
         for(int[] dir : directions){
             int newRow=row+dir[0];
             int newCol=col+dir[1];
-
             if(newRow<0 || newRow>=heights.length || newCol<0 || newCol>=heights[0].length){
                 continue;
             }
