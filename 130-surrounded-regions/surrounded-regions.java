@@ -11,7 +11,6 @@ class Solution {
                 }
             }
         }
-
         for(int r=0 ; r<m; r++){
             for(int c=0; c<n; c++){
                 if(board[r][c]=='O'){
@@ -24,7 +23,7 @@ class Solution {
         }
     }
     private void dfs(char[][] board, int r, int c){
-        if(r < 0 || r>=board.length || c<0 || c>=board[0].length || board[r][c] !='O'){
+        if(r < 0 || r>=board.length || c<0 || c>=board[0].length || board[r][c] !='O'){  //out of bound
             return;
         }
         board[r][c]='T';
