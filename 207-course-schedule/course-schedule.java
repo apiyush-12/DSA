@@ -37,6 +37,8 @@
 //     }
 // }
 
+
+// piyush
 class Solution{
     public boolean canFinish(int numCourses, int[][] prerequisites){
         ArrayList<ArrayList<Integer>> adj= new ArrayList<>();
