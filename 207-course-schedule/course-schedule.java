@@ -18,7 +18,6 @@ class Solution {
         }
         return true;
     }
-
     public boolean courseSchedule(int course, HashSet<Integer> visited, HashMap<Integer, List<Integer>> courseGraph){
         if(visited.contains(course)){
             return false;
