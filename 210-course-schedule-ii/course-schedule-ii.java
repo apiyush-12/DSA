@@ -79,6 +79,8 @@
 //   }
 // }
 
+
+// piyush
 class Solution{
     public int[] findOrder(int numCourses, int[][] prerequisites){
         ArrayList<Integer>[] graph=new ArrayList[numCourses];
@@ -89,7 +91,7 @@ class Solution{
             int a= pre[0];
             int b= pre[1];
             graph[b].add(a);
-            // graph.get(pre[1]).add(pre[0]);
+
         }
         Stack<Integer> stack = new Stack<>();
         int[] state =new int[numCourses];
