@@ -39,34 +39,62 @@
 
 
 // piyush
+// class Solution{
+//     public boolean canFinish(int numCourses, int[][] prerequisites){
+//         ArrayList<ArrayList<Integer>> adj= new ArrayList<>();
+//         for(int i=0; i<numCourses; i++){
+//             adj.add(new ArrayList<>());
+//         }
+//         for(int[] e : prerequisites){
+//             adj.get(e[1]).add(e[0]);
+//         }
+//         int[] state = new int[numCourses];
+//         for(int i=0; i<numCourses; i++){
+//             if(state[i]==0){
+//                 if(dfs(i, adj, state)){
+//                     return false;
+//                 }
+//             }
+//         }
+//         return true;
+//     }
+//     public boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] state){
+//         if(state[node]==1) return true;
+//         if(state[node]==2) return false;
+//         state[node]=1;
+//         for(int neigh : adj.get(node)){
+//             if(dfs(neigh, adj, state)) return true;
+//         }
+//         state[node]=2;
+//         return false;
+//     }
+// }
+
 class Solution{
     public boolean canFinish(int numCourses, int[][] prerequisites){
-        ArrayList<ArrayList<Integer>> adj= new ArrayList<>();
+        ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
         for(int i=0; i<numCourses; i++){
             adj.add(new ArrayList<>());
         }
         for(int[] e : prerequisites){
             adj.get(e[1]).add(e[0]);
         }
-        int[] state = new int[numCourses];
+        int[] state=new int[numCourses];
         for(int i=0; i<numCourses; i++){
             if(state[i]==0){
-                if(dfs(i, adj, state)){
-                    return false;
-                }
+                if(dfs(i, adj, state)) return false;
             }
         }
         return true;
     }
-    public boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] state){
-        if(state[node]==1) return true;
-        if(state[node]==2) return false;
-
-        state[node]=1;
-        for(int neigh : adj.get(node)){
+    private boolean dfs(int index, ArrayList<ArrayList<Integer>> adj, int[] state){
+        if(state[index]==1) return true;
+        if(state[index]==2) return false;
+        state[index]=1;
+        for(int neigh : adj.get(index)){
             if(dfs(neigh, adj, state)) return true;
         }
-        state[node]=2;
+        state[index]=2;
         return false;
     }
 }
