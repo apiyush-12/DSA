@@ -81,6 +81,54 @@
 
 
 // piyush
+// class Solution{
+//     public int[] findOrder(int numCourses, int[][] prerequisites){
+//         ArrayList<Integer>[] graph=new ArrayList[numCourses];
+//         for(int i=0; i<numCourses; i++){
+//             graph[i]=new ArrayList<>();
+//         }
+//         for(int[] pre : prerequisites){
+//             int a= pre[0];
+//             int b= pre[1];
+//             graph[b].add(a);
+
+//         }
+//         Stack<Integer> stack = new Stack<>();
+//         int[] state =new int[numCourses];
+//         for(int i=0; i<numCourses; i++){
+//             if(state[i]==0){
+//                 if(dfs(graph, i, state, stack)){
+//                     return new int[0];
+//                 }
+//             }
+//         }
+//         int[] ans= new int[numCourses];
+//         int index=0;
+//         while(!stack.isEmpty()){
+//             ans[index++]=stack.pop();
+//         }
+//         return ans;
+//     }
+
+//     private boolean dfs(ArrayList<Integer>[] graph,int curr,int[] state,Stack<Integer> stack){
+//         state[curr]=1;
+//         for(int neigh : graph[curr]){
+//             if(state[neigh]==1){
+//                 return true;
+//             }
+//             if(state[neigh]==0){
+//                 if(dfs(graph, neigh, state, stack)){
+//                     return true;
+//                 }
+//             }
+//         }
+//         state[curr]=2;
+//         stack.push(curr);
+//         return false;
+//     }
+// }
+
+
 class Solution{
     public int[] findOrder(int numCourses, int[][] prerequisites){
         ArrayList<Integer>[] graph=new ArrayList[numCourses];
@@ -91,35 +139,29 @@ class Solution{
             int a= pre[0];
             int b= pre[1];
             graph[b].add(a);
-
         }
-        Stack<Integer> stack = new Stack<>();
-        int[] state =new int[numCourses];
+        Stack<Integer> stack=new Stack<>();
+        int[] state=new int[numCourses];
         for(int i=0; i<numCourses; i++){
             if(state[i]==0){
-                if(dfs(graph, i, state, stack)){
-                    return new int[0];
-                }
+                if(dfs(i, stack, state, graph)) return new int[0];
             }
         }
-        int[] ans= new int[numCourses];
+        int[] ans=new int[numCourses];
         int index=0;
         while(!stack.isEmpty()){
             ans[index++]=stack.pop();
         }
         return ans;
     }
-
-    private boolean dfs(ArrayList<Integer>[] graph,int curr,int[] state,Stack<Integer> stack){
+    private boolean dfs(int curr, Stack<Integer> stack, int[] state, ArrayList<Integer>[] graph){
         state[curr]=1;
         for(int neigh : graph[curr]){
             if(state[neigh]==1){
                 return true;
             }
             if(state[neigh]==0){
-                if(dfs(graph, neigh, state, stack)){
-                    return true;
-                }
+                if(dfs(neigh, stack, state, graph)) return true;
             }
         }
         state[curr]=2;
