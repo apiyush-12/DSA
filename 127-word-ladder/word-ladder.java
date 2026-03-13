@@ -14,7 +14,6 @@ class Solution {
         Q.add(new Pair(beginWord, 1));
         Map<String, Boolean> visited = new HashMap<>();
         visited.put(beginWord, true);
-
         while(!Q.isEmpty()){
             Pair<String, Integer> node = Q.remove();
             String word=node.getKey();
