@@ -49,7 +49,9 @@ class Solution{
         }
         List<Integer> result = new ArrayList<>();
         for(int i=1; i<=nums.length; i++){
-            if(arr[i]==0) result.add(i);
+            if(arr[i]==0){
+                result.add(i);
+            }
         }
         return result;
     }
