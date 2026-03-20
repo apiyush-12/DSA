@@ -34,6 +34,56 @@
 
 
 //piyush
+// class Solution{
+//     static class Pair{
+//         int node, weight;
+//         Pair(int node, int weight){
+//             this.node=node;
+//             this.weight=weight;
+//         }
+//     }
+//     public int networkDelayTime(int[][] times, int n, int k){
+//         ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+//         for(int i=0; i<=n; i++){
+//             adj.add(new ArrayList<>());
+//         }
+//         for(int[] t : times){
+//             int u=t[0], v=t[1], w=t[2];
+//             adj.get(u).add(new Pair(v, w));
+//         }
+//         PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> a.weight - b.weight);
+//         int[] dist = new int[n+1];
+//         Arrays.fill(dist, Integer.MAX_VALUE);
+//         dist[k]=0;
+
+//         pq.offer(new Pair(k, 0));
+//         boolean[] visited = new boolean[n+1];
+
+//         while(!pq.isEmpty()){
+//             Pair curr = pq.poll();
+//             int u = curr.node;
+
+//             if(visited[u]) continue;
+//             visited[u]=true;
+//             for(Pair neigh : adj.get(u)){
+//                 int v = neigh.node;
+//                 int w = neigh.weight;
+//                 if(dist[u] + w < dist[v]){
+//                     dist[v]= dist[u]+w;
+//                     pq.offer(new Pair(v, dist[v]));
+//                 }
+//             }
+//         }
+//         int ans=0; 
+//         for(int i=1; i<=n; i++){
+//             if(dist[i] == Integer.MAX_VALUE) return -1;
+//             ans=Math.max(ans, dist[i]);
+//         }
+//         return ans;
+//     }
+// }
+
+
 class Solution{
     static class Pair{
         int node, weight;
@@ -42,6 +92,7 @@ class Solution{
             this.weight=weight;
         }
     }
+
     public int networkDelayTime(int[][] times, int n, int k){
         ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
         for(int i=0; i<=n; i++){
@@ -58,10 +109,9 @@ class Solution{
 
         pq.offer(new Pair(k, 0));
         boolean[] visited = new boolean[n+1];
-
         while(!pq.isEmpty()){
             Pair curr = pq.poll();
-            int u = curr.node;
+            int u=curr.node;
 
             if(visited[u]) continue;
             visited[u]=true;
@@ -69,15 +119,15 @@ class Solution{
                 int v = neigh.node;
                 int w = neigh.weight;
                 if(dist[u] + w < dist[v]){
-                    dist[v]= dist[u]+w;
+                    dist[v]=dist[u]+w;
                     pq.offer(new Pair(v, dist[v]));
                 }
             }
         }
         int ans=0; 
         for(int i=1; i<=n; i++){
-            if(dist[i] == Integer.MAX_VALUE) return -1;
-            ans=Math.max(ans, dist[i]);
+            if(dist[i]==Integer.MAX_VALUE) return -1;
+            ans= Math.max(ans, dist[i]);
         }
         return ans;
     }
