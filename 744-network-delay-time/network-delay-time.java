@@ -94,7 +94,6 @@ class Solution{
             this.weight=weight;
         }
     }
-
     public int networkDelayTime(int[][] times, int n, int k){
         ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
         for(int i=0; i<=n; i++){
@@ -108,13 +107,11 @@ class Solution{
         int[] dist = new int[n+1];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[k]=0;
-
         pq.offer(new Pair(k, 0));
         boolean[] visited = new boolean[n+1];
         while(!pq.isEmpty()){
             Pair curr = pq.poll();
             int u=curr.node;
-
             if(visited[u]) continue;
             visited[u]=true;
             for(Pair neigh : adj.get(u)){
