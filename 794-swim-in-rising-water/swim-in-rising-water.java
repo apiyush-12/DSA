@@ -12,13 +12,11 @@ class Solution {
         }
         return left;
     }
-
     private boolean canSwim(int[][] grid, int t){
         int n=grid.length;
         boolean[][] visited = new boolean[n][n];
         return dfs(grid, visited, 0, 0, t);
     }
-
     private boolean dfs(int[][] grid, boolean[][] visited, int i, int j, int t){
         int n= grid.length;
         if(i<0 || i>=n || j <0 || j >= n || visited[i][j] || grid[i][j] > t){
@@ -28,6 +26,9 @@ class Solution {
             return true;
         }
         visited[i][j]=true;
-        return dfs(grid, visited, i+1, j, t) || dfs(grid, visited, i-1, j, t) || dfs (grid, visited, i, j+1, t) || dfs(grid, visited, i, j-1, t);
+        return dfs(grid, visited, i+1, j, t) ||
+               dfs(grid, visited, i-1, j, t) ||
+               dfs(grid, visited, i, j+1, t) ||
+               dfs(grid, visited, i, j-1, t);
     }
 }
