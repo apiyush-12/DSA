@@ -22,8 +22,7 @@
 class Solution{
     public int climbStairs(int n){
     //     int i;
-    //     int prev1 = i-1;
-    //     int prev2 = i;
+    //    
     //    int curr = 0;
 
     //    for(i = 1 ; i < n ; i++) {
