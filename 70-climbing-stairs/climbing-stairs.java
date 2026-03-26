@@ -12,35 +12,14 @@
 // }
 
 
-
-
-
-
-
-
-
 class Solution{
     public int climbStairs(int n){
-    //     int i;
-    //    
-    //    int curr = 0;
-
-    //    for(i = 1 ; i < n ; i++) {
-      
-    //     int curr = prev1 + prev2;
-
-    //     prev1 = prev2;
-    //     prev2
-    //    }
-    if(n==1) return 1;
-    int prev = 1;
-    int prev1 = 1;
-    int curr=0;
-    for(int i=2; i<=n; i++){
-        curr = prev + prev1;
-        prev = prev1;
-        prev1 = curr;
-    }
-    return curr;
+        int prev1=1, prev2=1;
+        for(int i=2; i<=n; i++){
+            int curr = prev1+prev2;
+            prev1=prev2;
+            prev2=curr;
+        }
+        return prev2;
     }
 }
