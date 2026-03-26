@@ -13,7 +13,6 @@ class Solution {
         if(head == null || left == right) return head;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-
         ListNode prev = dummy;
         for(int i = 1; i<left; i++){
             prev = prev.next;
@@ -30,6 +29,7 @@ class Solution {
         ListNode tail = prev.next;
         prev.next=prevSub;
         tail.next=curr;
+        
         return dummy.next;
     }
 }
