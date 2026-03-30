@@ -8,6 +8,7 @@ class Solution {
             rob1=rob2;
             rob2=max;
         }
-        return Math.max(rob1, rob2);
+        // return Math.max(rob1, rob2);
+        return max;
     }
 }
