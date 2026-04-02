@@ -9,7 +9,7 @@ class Solution {
         return ans;
     }
     private int checkP(String s, int L, int R){
-        int count=0;
+        int count= 0;
         while(L>=0 && R < s.length() && s.charAt(L)==s.charAt(R)){
             L--;
             R++;
