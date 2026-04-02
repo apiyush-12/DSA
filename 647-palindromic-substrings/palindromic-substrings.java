@@ -1,39 +1,18 @@
-// class Solution {
-//     public int countSubstrings(String s) {
-//         int ans=0;
-//         for(int i=0; i<s.length(); i++){
-//             ans+=checkPalindrome(s, i, i);
-//             ans+=checkPalindrome(s, i, i+1);
-//         }
-//         return ans;
-//     }
-//     public int checkPalindrome(String s, int left, int right){
-//         int count=0;
-//         while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
-//             left--;
-//             right++;
-//             count++;
-//         }
-//         return count;
-//     }
-// }
-
-
-// piyush
-class Solution{
-    public int countSubstrings(String s){
+class Solution {
+    public int countSubstrings(String s) {
+        if(s==null || s.length()<1) return 0;
         int ans=0;
         for(int i=0; i<s.length(); i++){
-            ans+=checkPalindrome(s, i, i);
-            ans+=checkPalindrome(s, i, i+1);
+            ans += checkP(s, i, i);
+            ans += checkP(s, i, i+1);
         }
         return ans;
     }
-    public int checkPalindrome(String s, int left, int right){
+    private int checkP(String s, int L, int R){
         int count=0;
-        while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
-            left--;
-            right++;
+        while(L>=0 && R < s.length() && s.charAt(L)==s.charAt(R)){
+            L--;
+            R++;
             count++;
         }
         return count;
