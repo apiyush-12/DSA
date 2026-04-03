@@ -27,7 +27,6 @@ class Solution{
         for(int i=0; i<s.length(); i++){
             len +=Max(s, i, i);
             len +=Max(s, i, i+1);
-            
         }
         return len;
     }
