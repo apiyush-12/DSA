@@ -10,7 +10,6 @@ class Solution {
                 }
             }
         }
-
         if(amt[amount] < amount+1) return amt[amount];
         return -1;
     }
