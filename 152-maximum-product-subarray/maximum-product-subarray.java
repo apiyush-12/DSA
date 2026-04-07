@@ -4,13 +4,11 @@ class Solution {
         int min = nums[0];
         int max = nums[0];
         int result = max;
-
         for(int i=1; i<nums.length; i++){
             int curr = nums[i];
             int temp= Math.max(curr, Math.max(curr*min, curr*max));
             min= Math.min(curr, Math.min(curr*min, curr*max));
             max=temp;
-
             result = Math.max(result, max);
         }
         return result;
