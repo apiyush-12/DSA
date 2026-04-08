@@ -34,20 +34,41 @@
 //     }
 // }
 
+// class Solution{
+//     public int maxProduct(int[] nums){
+//         int max = nums[0], min=nums[0], ans=max;
+//         for(int i=1; i<nums.length; i++){
+//             int curr = nums[i];
+//             if(curr < 0){
+//                 int temp = max;
+//                 max=min;
+//                 min=temp;
+//             }
+//             max=Math.max(curr, curr*max);
+//             min=Math.min(curr, curr*min);
+//             ans = Math.max(ans, max);
+//         }
+//         return ans;
+//     }
+// }
+
 class Solution{
     public int maxProduct(int[] nums){
-        int max = nums[0], min=nums[0], ans=max;
-        for(int i=1; i<nums.length; i++){
-            int curr = nums[i];
-            if(curr < 0){
-                int temp = max;
-                max=min;
-                min=temp;
+        int pro=1;
+        int max=Integer.MIN_VALUE;
+        for(int i=nums.length-1; i>=0; i--){
+            pro *= nums[i];
+            if(pro > max){
+                max=pro;
             }
-            max=Math.max(curr, curr*max);
-            min=Math.min(curr, curr*min);
-            ans = Math.max(ans, max);
+            if(pro==0) pro=1;
         }
-        return ans;
+        pro=1;
+        for(int i=0; i<nums.length; i++){
+            pro *= nums[i];
+            if(pro > max) max=pro;
+            if(pro==0) pro=1;
+        }
+        return max;
     }
 }
