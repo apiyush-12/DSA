@@ -18,6 +18,23 @@
 
 
 // piyush
+// class Solution{
+//     public boolean wordBreak(String s, List<String> wordDict){
+//         boolean[] dp = new boolean[s.length()+1];
+//         dp[0]=true;
+//         Set<String> wordBreak = new HashSet<>(wordDict);
+//         for(int i=1; i<s.length()+1; i++){
+//             for(int j = i-1; j>=0; j--){
+//                 if(dp[j] && wordBreak.contains(s.substring(j, i))){
+//                     dp[i]=true;
+//                     break;
+//                 }
+//             }
+//         }
+//         return dp[s.length()];
+//     }
+// }
+
 class Solution{
     public boolean wordBreak(String s, List<String> wordDict){
         boolean[] dp = new boolean[s.length()+1];
@@ -26,11 +43,12 @@ class Solution{
         for(int i=1; i<s.length()+1; i++){
             for(int j = i-1; j>=0; j--){
                 if(dp[j] && wordBreak.contains(s.substring(j, i))){
-                    dp[i]=true;
+                    dp[i] = true;
                     break;
                 }
             }
         }
         return dp[s.length()];
+
     }
 }
