@@ -1,5 +1,4 @@
-# Write your MySQL query statement below
-
+-- Write your PostgreSQL query statement below
 SELECT name, population, area
 FROM World
 WHERE area >= 3000000
