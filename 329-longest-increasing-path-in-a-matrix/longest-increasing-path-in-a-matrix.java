@@ -3,8 +3,7 @@ class Solution {
     private int m, n;
     public int longestIncreasingPath(int[][] matrix) {
         if(matrix.length==0) return 0;
-        m = matrix.length;
-        n = matrix[0].length; 
+        m = matrix.length; n = matrix[0].length; 
         int[][] cache = new int[m][n];
         int ans = 0;
         for(int i =0; i<m; i++){
@@ -14,10 +13,8 @@ class Solution {
         }
         return ans;
     }
-
     private int dfs(int[][] matrix, int i, int j, int[][] cache){
         if(cache[i][j] != 0) return cache[i][j];
-
         for(int[] dir : dirs){
             int x = i + dir[0], y = j + dir[1];
             if(x >= 0 && x <m && y >= 0 && y <n && matrix[x][y] >  matrix[i][j]){
