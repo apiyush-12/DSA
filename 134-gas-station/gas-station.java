@@ -21,7 +21,6 @@ class Solution{
         int totalCost = 0;
         int tank = 0;
         int startInd = 0;
-
         for(int i = 0; i< gas.length; i++){
             totalGas += gas[i];
             totalCost += cost[i];
