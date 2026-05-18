@@ -32,6 +32,7 @@
 //     }
 // }
 
+// piyush
 class Solution{
     public int canCompleteCircuit(int[] gas, int[] cost){
         int totalCost = 0, totalGas =0, tank =0, startInd = 0;
