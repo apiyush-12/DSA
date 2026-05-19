@@ -1,6 +1,7 @@
 class Solution {
     public boolean mergeTriplets(int[][] triplets, int[] target) {
         int[] maxVal = new int[3];
+        
         for(int[] triplet : triplets){
             if(triplet[0] <= target[0] && triplet[1] <= target[1] && triplet[2] <= target[2]){
                 maxVal[0] = Math.max(maxVal[0], triplet[0]);
