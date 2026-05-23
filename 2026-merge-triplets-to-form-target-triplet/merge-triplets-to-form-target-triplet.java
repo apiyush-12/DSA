@@ -15,6 +15,7 @@
 // }
 
 
+// piyush
 class Solution{
     public boolean mergeTriplets(int[][] triplets, int[] target){
         int[] maxVal = new int[3];
