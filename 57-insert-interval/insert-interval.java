@@ -18,7 +18,6 @@ class Solution {
             interval[1] = Math.max(interval[1], newEnd);
             output.add(interval);
         }
-
         while(left < right){
             interval = intervals[left];
             left++;
