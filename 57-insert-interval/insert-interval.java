@@ -33,8 +33,8 @@
 // }
 
 
-class Solution {
-    public int[][] insert(int[][] intervals, int[] newInterval) {
+class Solution{
+    public int[][] insert(int[][] intervals, int[] newInterval){
         List<int[]> merge = new ArrayList<>();
         int i = 0;
         int l = intervals.length;
