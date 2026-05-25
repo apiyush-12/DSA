@@ -3,9 +3,7 @@ class Solution {
         int newStart = newInterval[0];
         int newEnd = newInterval[1];
         int left = 0, right = intervals.length;
-
         LinkedList<int[]> output = new LinkedList<int[]>();
-
         while(left < right && newStart > intervals[left][0]){
             output.add(intervals[left]);
             left++;
@@ -22,7 +20,6 @@ class Solution {
             interval = intervals[left];
             left++;
             int start = interval[0], end = interval[1];
-
             if(output.getLast()[1] <  start){
                 output.add(interval);
             }else{
