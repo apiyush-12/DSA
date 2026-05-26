@@ -33,22 +33,45 @@
 // }
 
 
+// class Solution{
+//     public int[][] insert(int[][] intervals, int[] newInterval){
+//         List<int[]> merge = new ArrayList<>();
+//         int i = 0;
+//         int l = intervals.length;
+//         while(i < l && intervals[i][1] < newInterval[0]){
+//             merge.add(intervals[i]);
+//             i++;
+//         }
+//         while(i < l && intervals[i][0] <= newInterval[1]){
+//             newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
+//             newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
+//             i++;
+//         }
+//         merge.add(newInterval);
+//         while(i < l){
+//             merge.add(intervals[i]);
+//             i++;
+//         }
+//         return merge.toArray(new int[][]{});
+//     }
+// }
+
 class Solution{
     public int[][] insert(int[][] intervals, int[] newInterval){
         List<int[]> merge = new ArrayList<>();
         int i = 0;
-        int l = intervals.length;
-        while(i < l && intervals[i][1] < newInterval[0]){
+        int j = intervals.length;
+        while(i < j && intervals[i][1] < newInterval[0]){
             merge.add(intervals[i]);
             i++;
         }
-        while(i < l && intervals[i][0] <= newInterval[1]){
-            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
-            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
+        while(i<j && intervals[i][0] <= newInterval[1]){
+            newInterval[0]=Math.min(intervals[i][0], newInterval[0]);
+            newInterval[1]= Math.max(intervals[i][1], newInterval[1]);
             i++;
         }
         merge.add(newInterval);
-        while(i < l){
+        while(i < j){
             merge.add(intervals[i]);
             i++;
         }
