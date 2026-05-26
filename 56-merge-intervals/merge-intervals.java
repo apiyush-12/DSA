@@ -10,19 +10,45 @@
 //     }
 // }
 
+// class Solution {
+//     public int[][] merge(int[][] intervals) {
+//         Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
+//         List<int[]> ans = new ArrayList<>();
+//         int[] prev = intervals[0];
+//         for(int i=1;i<intervals.length;i++){
+//             if(intervals[i][0]<=prev[1]) prev[1]=Math.max(prev[1],intervals[i][1]);
+//             else{
+//                 ans.add(prev);
+//                 prev=intervals[i];
+//             }
+//         }
+//         ans.add(prev);
+//         return ans.toArray(new int[ans.size()][]);
+//     }
+// }
+
+
 class Solution {
     public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
-        List<int[]> ans = new ArrayList<>();
-        int[] prev = intervals[0];
-        for(int i=1;i<intervals.length;i++){
-            if(intervals[i][0]<=prev[1]) prev[1]=Math.max(prev[1],intervals[i][1]);
-            else{
-                ans.add(prev);
-                prev=intervals[i];
+        List<int[]> res = new ArrayList<>();
+        int rows = intervals.length;
+        if (rows == 0) {
+            return res.toArray(new int[res.size()][]);
+        }
+        Arrays.sort(intervals, (a,b)->a[0]-b[0]);
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+        for (int i = 1; i < rows; i++) {
+            if (intervals[i][0] <= end) {
+                end = Math.max(end, intervals[i][1]);
+            } else {
+                res.add(new int[] { start, end });
+                start = intervals[i][0];
+                end = intervals[i][1];
             }
         }
-        ans.add(prev);
-        return ans.toArray(new int[ans.size()][]);
+        res.add(new int[] { start, end });
+        return res.toArray(new int[res.size()][]);
+
     }
 }
