@@ -6,9 +6,7 @@ class Solution {
         int prev = 0, count = 0;
         for(int i = 1; i<size; i++){
             if(intervals[prev][1] > intervals[i][0]){
-                if(intervals[prev][1] > intervals[i][1]){
-                    prev = i;
-                }
+                if(intervals[prev][1] > intervals[i][1]) prev = i;
                 count++;
             }else prev = i;
         }
