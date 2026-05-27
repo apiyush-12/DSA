@@ -10,9 +10,7 @@ class Solution {
                     prev = i;
                 }
                 count++;
-            }else{
-                prev = i;
-            }
+            }else prev = i;
         }
         return count;
     }
