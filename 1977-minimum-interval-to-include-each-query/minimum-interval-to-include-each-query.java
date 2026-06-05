@@ -34,31 +34,62 @@
 
 
 // piyush
-class Solution {
-    public int[] minInterval(int[][] intervals, int[] queries) {
-        Arrays.sort(intervals, (a,b) -> a[0]-b[0]);
+// class Solution {
+//     public int[] minInterval(int[][] intervals, int[] queries) {
+//         Arrays.sort(intervals, (a,b) -> a[0]-b[0]);
+//         int n = queries.length;
+//         int[][] queriesIndex = new int[n][2];
+//         for (int i=0; i<n; i++) {
+//             queriesIndex[i][0] = queries[i];
+//             queriesIndex[i][1] = i;
+//         }
+//         Arrays.sort(queriesIndex, (a,b) -> a[0]-b[0]);
+//         PriorityQueue<int[]> queue = new PriorityQueue<>((a,b) -> (a[1]-a[0]) - (b[1]-b[0]));
+//         int j=0, len = intervals.length;
+//         int[] result = new int[n];
+//         for (int i=0; i<n; i++) {
+//             int queryVal = queriesIndex[i][0];
+//             int queryInd = queriesIndex[i][1];
+//             while (j<len && intervals[j][0] <= queryVal) {
+//                 queue.offer(intervals[j]);
+//                 j++;
+//             }
+//             while (!queue.isEmpty() && queue.peek()[1] < queryVal) {
+//                 queue.remove();
+//             }
+//             int minInterval = queue.isEmpty() ? -1 : queue.peek()[1] - queue.peek()[0] + 1;
+//             result[queryInd] = minInterval;
+//         }
+//         return result;
+//     }
+// }
+
+class Solution{
+    public int[] minInterval(int[][] intervals, int[] queries){
+        Arrays.sort(intervals, (a, b) -> a[0]-b[0]);
         int n = queries.length;
         int[][] queriesIndex = new int[n][2];
-        for (int i=0; i<n; i++) {
+        for(int i=0; i< n; i++){
             queriesIndex[i][0] = queries[i];
             queriesIndex[i][1] = i;
         }
-        Arrays.sort(queriesIndex, (a,b) -> a[0]-b[0]);
-        PriorityQueue<int[]> queue = new PriorityQueue<>((a,b) -> (a[1]-a[0]) - (b[1]-b[0]));
-        int j=0, len = intervals.length;
+
+        Arrays.sort(queriesIndex, (a, b) -> a[0]-b[0]);
+        PriorityQueue <int[]> pq = new PriorityQueue<>((a, b)-> (a[1]-a[0])-(b[1]-b[0]));
+        int j = 0, len = intervals.length;
         int[] result = new int[n];
-        for (int i=0; i<n; i++) {
+        for(int i=0; i<n; i++){
             int queryVal = queriesIndex[i][0];
-            int queryInd = queriesIndex[i][1];
-            while (j<len && intervals[j][0] <= queryVal) {
-                queue.offer(intervals[j]);
+            int queryIdx = queriesIndex[i][1];
+            while(j < len && intervals[j][0] <=queryVal){
+                pq.offer(intervals[j]);
                 j++;
             }
-            while (!queue.isEmpty() && queue.peek()[1] < queryVal) {
-                queue.remove();
+            while(!pq.isEmpty() && pq.peek()[1] < queryVal){
+                pq.remove();
             }
-            int minInterval = queue.isEmpty() ? -1 : queue.peek()[1] - queue.peek()[0] + 1;
-            result[queryInd] = minInterval;
+            int minInterval = pq.isEmpty() ? -1 : pq.peek()[1]-pq.peek()[0] + 1;
+            result[queryIdx] = minInterval;
         }
         return result;
     }
