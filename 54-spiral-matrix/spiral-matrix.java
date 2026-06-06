@@ -20,7 +20,6 @@ class Solution {
                 changedirection = 0;
                 row = row + dir[currentdirection][0];
                 col = col + dir[currentdirection][1];
-
                 ans.add(matrix[row][col]);
                 matrix[row][col] = visited;
             }
