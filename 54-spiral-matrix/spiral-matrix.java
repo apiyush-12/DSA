@@ -30,12 +30,13 @@
 //     }
 // }
 
+
+// piyush
 class Solution{
     public List<Integer> spiralOrder(int[][] matrix){
         int visited = 101;
         int rows = matrix.length;
         int columns = matrix[0].length;
-        
         int row = 0, col = 0;
         int[][] dir = {{0,1}, {1, 0}, {0, -1}, {-1, 0}};
         int currentdirection = 0, changedirection = 0;
