@@ -7,6 +7,7 @@ class Solution {
         }
         return n == 1;
     }
+    
     private static int getHappy(int n){
         int sum = 0;
         while(n>0){
