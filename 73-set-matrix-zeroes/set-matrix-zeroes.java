@@ -28,6 +28,8 @@
 //     }
 // }
 
+
+//piyush
 class Solution{
     public void setZeroes(int[][] matrix){
         boolean firstrow = false;
@@ -48,7 +50,6 @@ class Solution{
                 if(matrix[i][0]==0 || matrix[0][j]==0) matrix[i][j] = 0;
             }
         }
-
         if(matrix[0][0] == 0){
             for(int j=1; j<c; j++) matrix[0][j] = 0;
         }
