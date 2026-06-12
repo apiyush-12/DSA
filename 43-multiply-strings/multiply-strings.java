@@ -27,7 +27,7 @@
 //     }
 // }
 
-
+// piyush
 class Solution{
     public String multiply(String num1, String num2){
         int n = num1.length(), m = num2.length();
@@ -47,7 +47,6 @@ class Solution{
                 result[posHigh] += sum / 10;
             }
         }
-
         StringBuilder Pro = new StringBuilder();
         for(int num : result){
             if(!(Pro.length() == 0 && num == 0)) Pro.append(num);
