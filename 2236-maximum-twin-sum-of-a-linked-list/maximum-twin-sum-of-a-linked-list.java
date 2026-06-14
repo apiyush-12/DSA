@@ -8,11 +8,13 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+
 class Solution {
     public int pairSum(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        while(fast.next.next != null){
+        while(fast.next != null &&fast.next.next != null){
             slow = slow.next;
             fast = fast.next.next;
         }
