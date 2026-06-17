@@ -31,7 +31,6 @@
 //     }
 // }
 
-
 class Solution {
     public char processStr(String s, long k) {
         int n = s.length();
@@ -44,7 +43,6 @@ class Solution {
             else if(c != '%') len++;
         }
         if(k >= len) return '.';
-
         for(int i = n - 1; i >= 0; i--) {
             char c = s.charAt(i);
             if(c == '*') len++;
