@@ -11,14 +11,26 @@
 // }
 
 // piyush
-class Solution{
-    public int reverseBits(int n){
-        int rev = 0;
-        for(int i=0; i<32; i++){
-            rev = rev << 1;
-            rev = rev | (n&1);
-            n = n >> 1;
+// class Solution{
+//     public int reverseBits(int n){
+//         int rev = 0;
+//         for(int i=0; i<32; i++){
+//             rev = rev << 1;
+//             rev = rev | (n&1);
+//             n = n >> 1;
+//         }
+//         return rev;
+//     }
+// }
+
+class Solution {
+    public int reverseBits(int n) {
+        int t = 31;
+        int ans  = 0;
+        while(n != 0) {
+            ans += (n%2) << t-- ;
+            n/=2;
         }
-        return rev;
+        return ans;
     }
 }
