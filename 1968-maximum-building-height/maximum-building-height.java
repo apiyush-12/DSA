@@ -42,6 +42,8 @@
 //     }
 // }
 
+
+
 class Solution {
     public int maxBuilding(int n, int[][] restrictions) {
         Arrays.sort(restrictions, (a, b) -> a[0] - b[0]);
@@ -54,11 +56,9 @@ class Solution {
         for(int i = 1; i<len-1; ++i){
             arr[i] = restrictions[i-1];
         }
-        
         for(int i = 0; i<len-1; ++i){
             arr[i+1][1] = Math.min(arr[i+1][1], arr[i][1] + (arr[i+1][0] - arr[i][0]));
         }
-        
         for(int i = len-1; i>0; --i){
             arr[i-1][1] = Math.min(arr[i-1][1], arr[i][1] + (arr[i][0] - arr[i-1][0]));
         }
