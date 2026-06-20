@@ -64,10 +64,10 @@ class Solution {
         }
         int max = 0;
         for(int i = 0; i<len-1; ++i){
-            int j = arr[i][0], h1 = arr[i][1], k = arr[i+1][0], h2 = arr[i+1][1];            
+            int x1 = arr[i][0], h1 = arr[i][1], x2 = arr[i+1][0], h2 = arr[i+1][1];            
             int diff = Math.max(h1, h2) - Math.min(h1, h2);
-            j += diff;
-            max = Math.max(max, Math.max(h1, h2) + (k - j)/2);
+            x1 += diff;
+            max = Math.max(max, Math.max(h1, h2) + (x2 - x1)/2);
         }
         
         return max;
