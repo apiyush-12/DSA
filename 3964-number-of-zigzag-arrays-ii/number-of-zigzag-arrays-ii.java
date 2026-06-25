@@ -159,6 +159,7 @@ class Solution{
         for(long num : arr) res += num;
         return (int) (res * 2 % mod);
     } 
+    
     int mod = 1000000007;
     public long[][] pro(long[][] a){
         long[][] res = new long[a.length][a[0].length];
@@ -185,6 +186,7 @@ class Solution{
         }
         return res;
     }
+
     public long[] pro(long[] a, long[][] b){
         long[] res = new long[a.length];
         for(int i=0; i<res.length; i++){
