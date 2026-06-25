@@ -5,7 +5,7 @@ class Solution {
             int tempCount = 0;
             for(int j=i; j<n; j++){
                 if(nums[j] == target) tempCount++;
-                if(tempCount > (j-i+1)/2) count++;
+                if(tempCount * 2 > j-i+1) count++;
             }
         }
         return count;
