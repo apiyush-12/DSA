@@ -4,7 +4,6 @@ class Solution {
         int len = 2*n+2;
         long[] countAtSum = new long[len];
         long[] cumSum = new long[len];
-
         int idx = n+1;
         countAtSum[idx] = 1;
         cumSum[idx] = 1;
