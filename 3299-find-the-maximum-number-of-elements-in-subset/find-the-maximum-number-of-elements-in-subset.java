@@ -66,7 +66,6 @@ class Solution{
             ans = (ones%2 == 1) ? ones : ones-1;
             cnt.remove(1L);
         }
-
         for(long start : cnt.keySet()){
             long x = start;
             int len = 0;
@@ -74,7 +73,6 @@ class Solution{
                 len += 2;
                 x = x*x;
             }
-
             if(cnt.getOrDefault(x, 0) == 1) len += 1;
             else len -= 1;
             ans = Math.max(ans, len);
