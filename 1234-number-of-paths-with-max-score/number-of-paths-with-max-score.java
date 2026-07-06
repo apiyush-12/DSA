@@ -52,6 +52,7 @@
 // }
 
 
+// piyush
 class Solution{
     int memoPath[][];
     int memoSum[][];
@@ -76,13 +77,13 @@ class Solution{
         int up[] = solve(row-1, col, board);
         int left[] = solve(row, col-1, board);
         int diag[] = solve(row-1, col-1, board);
-
         int max = Math.max(up[0], Math.max(left[0], diag[0]));
         if(max == -1){
             memoPath[row][col] = 0;
             memoSum[row][col] = -1;
             return new int[] {-1, 0};
         }
+
         int paths = 0;
         if(up[0] == max) paths = (paths + up[1]) % MOD;
         if(left[0] == max) paths = (paths + left[1]) % MOD;
