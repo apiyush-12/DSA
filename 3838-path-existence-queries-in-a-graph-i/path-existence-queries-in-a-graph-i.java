@@ -6,6 +6,7 @@ class Solution {
             if(diff <= maxDiff) comp[i] = comp[i-1];
             else comp[i] = i;
         }
+        
         boolean[] ans = new boolean[queries.length];
         for(int i=0; i<queries.length; i++){
             int node1 = queries[i][0], node2 = queries[i][1];
