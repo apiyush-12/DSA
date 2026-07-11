@@ -21,7 +21,6 @@ class Solution {
         }
         return ans;
     }
-
     int[] dfs(int node){
         int[] ret = new int[2];
         visited[node] = true;
