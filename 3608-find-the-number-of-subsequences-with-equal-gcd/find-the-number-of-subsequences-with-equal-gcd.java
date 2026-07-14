@@ -57,14 +57,12 @@ class Solution {
             }
             dp = ndp;
         }
-
         int ans = 0;
         for (int j = 1; j <= m; j++) {
             ans = (ans + dp[j][j]) % MOD;
         }
         return ans;
     }
-
     private int gcd(int a, int b) {
         if(a==0) return b;
         return gcd(b%a, a);
