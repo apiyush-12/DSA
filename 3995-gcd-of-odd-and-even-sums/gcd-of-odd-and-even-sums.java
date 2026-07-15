@@ -7,6 +7,7 @@ class Solution {
         }
         return gcd(evenSum, oddSum);
     }
+    
     private int gcd(int a, int b){
         if(a==0) return b;
         return gcd(b%a, a);
