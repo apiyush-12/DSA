@@ -15,8 +15,21 @@
 // }
 
 
+// class Solution{
+//     public int gcdOfOddEvenSums(int n){
+//         return n;
+//     }
+// }
+
+
 class Solution{
     public int gcdOfOddEvenSums(int n){
-        return n;
+        int evenSum = n*(n+1); 
+        int oddSum = n*n;
+        return gcd(oddSum, evenSum);
+    }
+    private int gcd(int a, int b){
+        if(a==0) return b;
+        return gcd(b%a, a);
     }
 }
