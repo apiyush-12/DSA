@@ -9,7 +9,6 @@ class Solution {
             prefixgcd[k] = gcd(num, max);
             k++;
         }
-
         Arrays.sort(prefixgcd);
         int i=0, j=n-1;
         long sum = 0;
