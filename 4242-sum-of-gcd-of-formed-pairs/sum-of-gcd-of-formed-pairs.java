@@ -19,8 +19,17 @@ class Solution {
         }
         return sum;
     }
-    private int gcd(int a, int b){
-        if(a==0) return b;
-        return gcd(b%a, a);
+    // private int gcd(int a, int b){
+    //     if(a==0) return b;
+    //     return gcd(b%a, a);
+    // }
+
+    private int gcd(int a, int b) {
+        while(b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
     }
 } 
