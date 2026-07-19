@@ -14,6 +14,8 @@
 //     } 
 // }
 
+
+// piyush
 class Solution{
     public int findGCD(int[] nums){
         int s = Integer.MAX_VALUE;
