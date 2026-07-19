@@ -9,12 +9,14 @@ class Solution {
         for(int i=0; i<s.length(); i++){
             char ch = s.charAt(i);
             if(visited[ch-'a']) continue;
+            
             while(!stack.isEmpty() && stack.peek() > ch && lastInd[stack.peek()-'a'] > i){
                 visited[stack.pop()-'a'] = false;
             }
             stack.push(ch);
             visited[ch-'a'] = true;
         }
+
         StringBuilder ans = new StringBuilder();
         for(char ch : stack) ans.append(ch);
         return ans.toString();
