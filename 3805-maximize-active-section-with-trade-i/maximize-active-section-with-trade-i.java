@@ -2,18 +2,19 @@ class Solution {
     public int maxActiveSectionsAfterTrade(String s) {
         int n = s.length();
         int ones = 0, maxSum = 0, prevSum = -1;
-        int i=0;
-        while(i<n){
-            if(s.charAt(i) == '1'){
+        int i = 0;
+        while (i < n) {
+            if (s.charAt(i) == '1') {
                 ones++;
                 i++;
-            }else{
+            } else {
                 int curr = 0;
-                while(i<n && s.charAt(i) == '0'){
+                while (i < n && s.charAt(i) == '0') {
                     curr++;
                     i++;
                 }
-                if(prevSum > 0) maxSum = Math.max(prevSum + curr, maxSum);
+                if (prevSum > 0)
+                    maxSum = Math.max(prevSum + curr, maxSum);
                 prevSum = curr;
             }
         }
