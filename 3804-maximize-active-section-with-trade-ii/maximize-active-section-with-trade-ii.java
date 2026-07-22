@@ -116,6 +116,8 @@
 //     }
 // }
 
+
+
 class Group {
   public int start;
   public int length;
@@ -135,7 +137,6 @@ class SparseTable {
         st[i][j] = Math.max(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
   }
 
-  // Returns max(nums[l..r])
   public int query(int l, int r) {
     final int i = bitLength(r - l + 1) - 1;
     return Math.max(st[i][l], st[i][r - (1 << i) + 1]);
@@ -159,7 +160,6 @@ class Solution {
 
     if (zeroGroups.isEmpty())
       return Collections.nCopies(queries.length, ones);
-
     final SparseTable st = new SparseTable(getZeroMergeLengths(zeroGroups));
     final List<Integer> ans = new ArrayList<>();
 
@@ -195,7 +195,6 @@ class Solution {
     return ans;
   }
 
-  // Returns the zero groups and the index of the zero group that contains the i-th character
   private Pair<List<Group>, int[]> getZeroGroups(String s) {
     final List<Group> zeroGroups = new ArrayList<>();
     final int[] zeroGroupIndex = new int[s.length()];
@@ -213,7 +212,6 @@ class Solution {
     return new Pair<>(zeroGroups, zeroGroupIndex);
   }
 
-  // Returns the sums of the lengths of the adjacent groups
   private int[] getZeroMergeLengths(List<Group> zeroGroups) {
     final int[] zeroMergeLengths = new int[zeroGroups.size() - 1];
     for (int i = 0; i < zeroGroups.size() - 1; ++i)
@@ -221,7 +219,6 @@ class Solution {
     return zeroMergeLengths;
   }
 
-  // Returns the indices of the adjacent groups that contain l and r completely
   private Pair<Integer, Integer> mapToAdjacentGroupIndices(int startGroupIndex, int endGroupIndex) {
     return new Pair<>(startGroupIndex, endGroupIndex - 1);
   }
