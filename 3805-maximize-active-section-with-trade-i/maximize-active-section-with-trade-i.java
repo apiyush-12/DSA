@@ -37,8 +37,7 @@ class Solution {
                     curr++;
                     i++;
                 }
-                if (prevSum > 0)
-                    maxSum = Math.max(prevSum + curr, maxSum);
+                if (prevSum > 0) maxSum = Math.max(prevSum + curr, maxSum);
                 prevSum = curr;
             }
         }
