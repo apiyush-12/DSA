@@ -32,6 +32,39 @@
 // }
 
 
+// class Solution {
+//     public int uniqueXorTriplets(int[] nums) {
+//         boolean[] pairsPossible = new boolean[2048];
+//         boolean[] ans = new boolean[2048];
+
+//         int n = nums.length;
+//         for (int i=0;i<n;i++) {
+//             for (int j=i+1;j<n;j++) {
+//                 pairsPossible[nums[i]^nums[j]] = true;
+//             }
+//         }
+
+//         // for triplets
+//         for (int e : nums) {
+//             ans[e] = true;
+//         }
+
+//         for (int i=0;i<2048;i++) {
+//             if (pairsPossible[i]) {
+//                 for (int e: nums) {
+//                     ans[i^e] = true;
+//                 }
+//             }
+//         }
+
+//         int ret = 0;
+//         for (boolean e: ans) {
+//             if (e) ret++;
+//         }
+//         return ret;
+//     }
+// }
+
 class Solution {
     public int uniqueXorTriplets(int[] nums) {
         boolean[] pairsPossible = new boolean[2048];
@@ -45,7 +78,7 @@ class Solution {
         }
 
         // for triplets
-        for (int e: nums) {
+        for (int e : nums) {
             ans[e] = true;
         }
 
