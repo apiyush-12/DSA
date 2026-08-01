@@ -18,16 +18,28 @@
 // }
 
 
-class Solution {
-    public int minimumPushes(String word) {
-        int ans=0;
-        int[] freq=new int[26];
-        int n=word.length();
+// class Solution {
+//     public int minimumPushes(String word) {
+//         int ans=0;
+//         int[] freq=new int[26];
+//         int n=word.length();
+//         for(int ch : word.toCharArray()) freq[ch-'a']++;
+//         Arrays.sort(freq);
+//         for(int i=25;i>=0;i--){
+//             ans+=freq[i]*((25-i)/8+1);
+//         }
+//         return ans;
+//     }
+// }
+
+
+class Solution{
+    public int minimumPushes(String word){
+        int[] freq = new int[26];
         for(int ch : word.toCharArray()) freq[ch-'a']++;
         Arrays.sort(freq);
-        for(int i=25;i>=0;i--){
-            ans+=freq[i]*((25-i)/8+1);
-        }
+        int ans = 0;
+        for(int i=25; i>=0; i--) ans += freq[i]*((25-i)/8 + 1);
         return ans;
     }
 }
