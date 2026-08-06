@@ -37,46 +37,85 @@
 // }
 
 
-class Solution {
-    public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
-        List<List<Integer>> adj=new ArrayList<>();
-        for(int i=0;i<n;i++){
-            adj.add(new ArrayList<>());
-        }
-        for(int[] node:invocations){
-            int u=node[0];
-            int v=node[1];
+// class Solution {
+//     public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
+//         List<List<Integer>> adj=new ArrayList<>();
+//         for(int i=0;i<n;i++){
+//             adj.add(new ArrayList<>());
+//         }
+//         for(int[] node:invocations){
+//             int u=node[0];
+//             int v=node[1];
+//             adj.get(u).add(v);
+//         }
+//         Queue<Integer> q=new LinkedList<>();
+//         boolean[] susp=new boolean[n];
+//         q.offer(k);
+//         susp[k]=true;
+//         while(!q.isEmpty()){
+//             int u=q.poll();
+//             for(int v:adj.get(u)){
+//                 if(!susp[v]){
+//                     q.offer(v);
+//                     susp[v]=true;
+//                 }
+//             }
+//         }
+//         for(int[] node:invocations){
+//             int u=node[0];
+//             int v=node[1];
+//             if(!susp[u]&&susp[v]){
+//                 List<Integer> ans=new ArrayList<>();
+//                 for(int i=0;i<n;i++){
+//                     ans.add(i);
+//                 }
+//                 return ans;
+//             }
+//         }
+//         List<Integer> ans=new ArrayList<>();
+//         for(int i=0;i<n;i++){
+//             if(!susp[i]){
+//              ans.add(i);
+//             }
+//         }
+//         return ans;
+//     }
+// }
+
+class Solution{
+    public List<Integer> remainingMethods(int n, int k, int[][] invocations){
+        List<List<Integer>> adj = new ArrayList<>();
+        for(int i=0; i<n; i++) adj.add(new ArrayList<>());
+        for(int[] node : invocations){
+            int u = node[0];
+            int v = node[1];
             adj.get(u).add(v);
         }
-        Queue<Integer> q=new LinkedList<>();
-        boolean[] susp=new boolean[n];
+        Queue<Integer> q = new LinkedList<>();
+        boolean[] susp = new boolean[n];
         q.offer(k);
-        susp[k]=true;
+        susp[k] = true;
         while(!q.isEmpty()){
-            int u=q.poll();
-            for(int v:adj.get(u)){
+            int u = q.poll();
+            for(int v : adj.get(u)){
                 if(!susp[v]){
                     q.offer(v);
-                    susp[v]=true;
+                    susp[v] = true;
                 }
             }
         }
-         for(int[] node:invocations){
-            int u=node[0];
-            int v=node[1];
-            if(!susp[u]&&susp[v]){
-                List<Integer> ans=new ArrayList<>();
-                for(int i=0;i<n;i++){
-                    ans.add(i);
-                }
+        for(int[] node : invocations){
+            int u = node[0];
+            int v = node[1];
+            if(!susp[u] && susp[v]){
+                List<Integer> ans = new ArrayList<>();
+                for(int i=0; i<n; i++) ans.add(i);
                 return ans;
             }
         }
-        List<Integer> ans=new ArrayList<>();
-        for(int i=0;i<n;i++){
-            if(!susp[i]){
-             ans.add(i);
-            }
+        List<Integer> ans = new ArrayList<>();
+        for(int i=0; i<n; i++){
+            if(!susp[i]) ans.add(i);
         }
         return ans;
     }
