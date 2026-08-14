@@ -73,61 +73,129 @@
 
 
 
-class Solution {
-    class Node {
-        char leftChar, rightChar; 
-        int leftCount, rightCount, max, length; 
-        Node() {} 
-        Node(char c) { 
-            leftChar = c; rightChar = c; 
-            leftCount = 1; rightCount = 1; 
-            max = 1;        
+// class Solution {
+//     class Node {
+//         char leftChar, rightChar; 
+//         int leftCount, rightCount, max, length; 
+//         Node() {} 
+//         Node(char c) { 
+//             leftChar = c; rightChar = c; 
+//             leftCount = 1; rightCount = 1; 
+//             max = 1;        
+//             length = 1;
+//         }
+//     }
+//     Node[] tree; int size; 
+
+//     public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices) {
+//         int n = s.length(), q = queryIndices.length; 
+//         size = 1; while(size < n) size *= 2; 
+//         tree = new Node[2 * size]; 
+//         for(int i = 0; i < size; i++) 
+//             tree[size + i] = (i < n) ? new Node(s.charAt(i)) : new Node(); 
+//         for(int i = size - 1; i >= 1; i--) 
+//             tree[i] = merge(tree[2 * i], tree[2 * i + 1]); 
+
+//         int[] ans = new int[q]; 
+//         for(int i = 0; i < q; i++) { 
+//             update(queryIndices[i], queryCharacters.charAt(i)); 
+//             ans[i] = tree[1].max; 
+//         }
+//         return ans; 
+//     }
+
+//     private void update(int pos, char c) {
+//         int idx = pos + size; 
+//         tree[idx] = new Node(c); 
+//         for(idx /= 2; idx >= 1; idx /= 2) tree[idx] = merge(tree[2 * idx], tree[2 * idx + 1]); 
+//     }
+
+//     private Node merge(Node left, Node right) {
+//         if(left.length == 0) return right; 
+//         if(right.length == 0) return left; 
+//         Node res = new Node(); 
+//         res.length = left.length + right.length; 
+//         res.leftChar = left.leftChar;   
+//         res.rightChar = right.rightChar; 
+//         res.leftCount = left.leftCount; 
+//         if(left.leftCount == left.length && left.rightChar == right.leftChar)
+//             res.leftCount = left.length + right.leftCount;
+
+//         res.rightCount = right.rightCount; 
+//         if(right.rightCount == right.length && left.rightChar == right.leftChar)
+//             res.rightCount = right.length + left.rightCount;
+
+//         res.max = Math.max(left.max, right.max); 
+//         if(left.rightChar == right.leftChar)
+//             res.max = Math.max(res.max, left.rightCount + right.leftCount); 
+//         return res; 
+//     }
+// }
+
+
+
+
+class Solution{
+    class Node{
+        char leftChar, rightChar;
+        int leftCount, rightCount, max, length;
+        Node() {}
+        Node(char c){
+            leftChar  = c; rightChar = c;
+            leftCount = 1; rightCount = 1;
+            max = 1;
             length = 1;
         }
     }
-    Node[] tree; int size; 
+    Node[] tree; 
+    int size;
 
-    public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices) {
-        int n = s.length(), q = queryIndices.length; 
-        size = 1; while(size < n) size *= 2; 
-        tree = new Node[2 * size]; 
-        for(int i = 0; i < size; i++) 
-            tree[size + i] = (i < n) ? new Node(s.charAt(i)) : new Node(); 
-        for(int i = size - 1; i >= 1; i--) 
-            tree[i] = merge(tree[2 * i], tree[2 * i + 1]); 
-
-        int[] ans = new int[q]; 
-        for(int i = 0; i < q; i++) { 
-            update(queryIndices[i], queryCharacters.charAt(i)); 
-            ans[i] = tree[1].max; 
+    public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices){
+        int n = s.length(), q = queryIndices.length;
+        size = 1;
+        while(size < n) size *= 2;
+        tree = new Node[2*size];
+        for(int i=0; i<size; i++){
+            tree[size+i] = (i<n) ? new Node(s.charAt(i)) : new Node();
         }
-        return ans; 
+        for(int i=size-1; i>=1; i--){
+            tree[i] = merge(tree[2*i], tree[2*i+1]);
+        }
+        int[] ans = new int[q];
+        for(int i=0; i<q; i++){
+            update(queryIndices[i], queryCharacters.charAt(i));
+            ans[i] = tree[1].max;
+        } 
+        return ans;
     }
 
-    private void update(int pos, char c) {
-        int idx = pos + size; 
-        tree[idx] = new Node(c); 
-        for(idx /= 2; idx >= 1; idx /= 2) tree[idx] = merge(tree[2 * idx], tree[2 * idx + 1]); 
+    private void update(int pos, char c){
+        int idx = pos + size;
+        tree[idx] = new Node(c);
+        for(idx /= 2; idx >= 1; idx/=2){
+            tree[idx] = merge(tree[2*idx], tree[2*idx+1]);
+        }
     }
 
-    private Node merge(Node left, Node right) {
-        if(left.length == 0) return right; 
-        if(right.length == 0) return left; 
-        Node res = new Node(); 
-        res.length = left.length + right.length; 
-        res.leftChar = left.leftChar;   
-        res.rightChar = right.rightChar; 
-        res.leftCount = left.leftCount; 
-        if(left.leftCount == left.length && left.rightChar == right.leftChar)
+    private Node merge(Node left, Node right){
+        if(left.length == 0) return right;
+        if(right.length == 0) return left;
+        Node res = new Node();
+        res.length = left.length + right.length;
+        res.leftChar = left.leftChar;
+        res.rightChar = right.rightChar;
+        res.leftCount = left.leftCount;
+        if(left.leftCount == left.length && left.rightChar == right.leftChar){
             res.leftCount = left.length + right.leftCount;
-
-        res.rightCount = right.rightCount; 
-        if(right.rightCount == right.length && left.rightChar == right.leftChar)
+        } 
+        res.rightCount = right.rightCount;
+        if(right.rightCount == right.length && left.rightChar == right.leftChar){
             res.rightCount = right.length + left.rightCount;
-
-        res.max = Math.max(left.max, right.max); 
-        if(left.rightChar == right.leftChar)
-            res.max = Math.max(res.max, left.rightCount + right.leftCount); 
-        return res; 
+        }
+        res.max = Math.max(left.max, right.max);
+        if(left.rightChar == right.leftChar){
+            res.max = Math.max(res.max, left.rightCount + right.leftCount);
+        }
+        return res;
     }
 }
