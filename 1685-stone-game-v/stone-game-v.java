@@ -25,38 +25,83 @@
 // }
 
 
-class Solution {
+// class Solution {
+//     int[][] dp = new int[501][501];
+//     int[] sum = new int[501];
+//     int solve(int l , int r){
+//         if(l>r) return 0;
+//         if(dp[l][r]!=-1) return dp[l][r];
+//         int ans = 0;
+//         for(int i=l; i<r; i++){
+//             int left = sum[i]-sum[l-1];
+//             int right = sum[r]-sum[i];
+//             if(left>right){
+//                 ans = Math.max(ans,right+solve(i+1,r));
+//             }
+//             else if(left<right){
+//                 ans = Math.max(ans,left+solve(l,i));
+//             }
+//             else{
+//                 ans = Math.max(ans,right+solve(i+1,r));
+//                 ans = Math.max(ans,right+solve(l,i));
+//             }
+//         }
+//         dp[l][r]=ans;
+//         return dp[l][r];
+//     }
+//     public int stoneGameV(int[] stoneValue) {
+//         int n = stoneValue.length;
+//         for(int i=1; i<=n; i++){
+//             sum[i]=sum[i-1]+stoneValue[i-1];
+//         }
+//         for(int i=0; i<=n; i++){
+//             Arrays.fill(dp[i],-1);
+//         }
+//         return solve(1,n);
+//     }
+// }
+
+class Solution{
     int[][] dp = new int[501][501];
     int[] sum = new int[501];
-    int solve(int l , int r){
-        if(l>r) return 0;
-        if(dp[l][r]!=-1) return dp[l][r];
+    int solve(int l, int r){
+        if(l > r) return 0;
+        if(dp[l][r] != -1) return dp[l][r];
         int ans = 0;
         for(int i=l; i<r; i++){
-            int left = sum[i]-sum[l-1];
+            int left = sum[i]- sum[l-1];
             int right = sum[r]-sum[i];
-            if(left>right){
-                ans = Math.max(ans,right+solve(i+1,r));
-            }
-            else if(left<right){
-                ans = Math.max(ans,left+solve(l,i));
-            }
+            if(left > right) ans = Math.max(ans, right + solve(i+1, r));
+            else if(left < right) ans = Math.max(ans, left + solve(l, i));
             else{
-                ans = Math.max(ans,right+solve(i+1,r));
-                ans = Math.max(ans,right+solve(l,i));
+                ans = Math.max(ans, left + solve(l, i));
+                ans = Math.max(ans, left + solve(i+1, r));
             }
         }
         dp[l][r]=ans;
         return dp[l][r];
     }
-    public int stoneGameV(int[] stoneValue) {
+    public int stoneGameV(int[] stoneValue){
         int n = stoneValue.length;
         for(int i=1; i<=n; i++){
-            sum[i]=sum[i-1]+stoneValue[i-1];
+            sum[i] = sum[i-1]+stoneValue[i-1];
         }
-        for(int i=0; i<=n; i++){
-            Arrays.fill(dp[i],-1);
-        }
-        return solve(1,n);
+        for(int i=0; i<=n; i++) Arrays.fill(dp[i], -1);
+        return solve(1, n);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
