@@ -57,12 +57,10 @@ class Solution{
         int i=0;
         int[] ans = new int[n];
         for(int k=0; k<a.size(); k++){ 
-            ans[i] = a.get(k);
-            i++;
+            ans[i++] = a.get(k);
         }
         for(int k=0; k<b.size(); k++){
-            ans[i] = b.get(k);
-            i++;
+            ans[i++] = b.get(k);
         }
         return ans;
     }
