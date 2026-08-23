@@ -28,29 +28,17 @@ class Solution {
 
         for (int i = 0; i < half; i++) {
             char c = num.charAt(i);
-
-            if (c == '?') {
-                qDiff++;
-            } else {
-                sumDiff += c - '0';
-            }
+            if (c == '?') qDiff++;
+            else sumDiff += c - '0';
         }
 
         for (int i = half; i < n; i++) {
             char c = num.charAt(i);
-
-            if (c == '?') {
-                qDiff--;
-            } else {
+            if (c == '?') qDiff--;else {
                 sumDiff -= c - '0';
             }
         }
-        // Odd difference in number of '?' -> Alice wins
-        if (qDiff % 2 != 0) {
-            return true;
-        }
-
-        // Bob can force equality only in this case
+        if (qDiff % 2 != 0) return true;
         return sumDiff + 9 * (qDiff / 2) != 0;
     }
 }
