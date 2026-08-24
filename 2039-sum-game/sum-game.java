@@ -58,6 +58,7 @@ class Solution{
             else sumDiff -= c-'0';
         }
         if(qDiff % 2 != 0) return true;
-        return sumDiff * 2 != -9*qDiff;
+        // return sumDiff * 2 != -9*qDiff;
+        return sumDiff + 9 * (qDiff/2) != 0;
     }
 }
