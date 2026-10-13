@@ -1,20 +1,38 @@
+// class Solution {
+//     public long maxAlternatingSum(int[] nums) {
+//         int n = nums.length;
+//         int mid = n / 2;
+//         long small = 0, large = 0;
+//         long[] arr = new long[n];
+//         for(int i=0; i<n; i++){
+//             arr[i] = Math.abs(nums[i]);
+//         }
+//         Arrays.sort(arr);
+//         for(int i=0; i<mid; i++){
+//             small += arr[i]*arr[i];
+//         }
+//         for(int i=mid; i<n; i++){
+//             large += arr[i]* arr[i];
+//         }
+//         return large - small;
+
+//     }
+// }
+
 class Solution {
     public long maxAlternatingSum(int[] nums) {
         int n = nums.length;
-        int mid = n / 2;
-        long small = 0, large = 0;
-        long[] arr = new long[n];
-        for(int i=0; i<n; i++){
-            arr[i] = Math.abs(nums[i]);
+        for (int i = 0; i < n; i++) {
+            nums[i] *= nums[i];
         }
-        Arrays.sort(arr);
-        for(int i=0; i<mid; i++){
-            small += arr[i]*arr[i];
+        Arrays.sort(nums);
+        long ans = 0;
+        for (int i = 0; i < n / 2; i++) {
+            ans -= nums[i];
         }
-        for(int i=mid; i<n; i++){
-            large += arr[i]* arr[i];
+        for (int i = n / 2; i < n; i++) {
+            ans += nums[i];
         }
-        return large - small;
-        
+        return ans;
     }
 }
