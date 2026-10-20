@@ -12,26 +12,43 @@
 // }
 
 
-import java.util.ArrayList;
-import java.util.List;
 
-class Solution {
-    public List<Integer> targetIndices(int[] nums, int target) {
-        int lessThanTargetCount = 0;
-        int targetCount = 0;
-        for (int num : nums) {
-            if (num < target) {
-                lessThanTargetCount++;
-            } else if (num == target) {
-                targetCount++;
-            }
-        }
+// class Solution {
+//     public List<Integer> targetIndices(int[] nums, int target) {
+//         int lessThanTargetCount = 0;
+//         int targetCount = 0;
+//         for (int num : nums) {
+//             if (num < target) {
+//                 lessThanTargetCount++;
+//             } else if (num == target) {
+//                 targetCount++;
+//             }
+//         }
         
-        List<Integer> result = new ArrayList<>();
-        for (int i = 0; i < targetCount; i++) {
-            result.add(lessThanTargetCount + i);
-        }
+//         List<Integer> result = new ArrayList<>();
+//         for (int i = 0; i < targetCount; i++) {
+//             result.add(lessThanTargetCount + i);
+//         }
         
-        return result;
+//         return result;
+//     }
+// }
+
+
+class Solution{
+    public List<Integer> targetIndices(int[] nums, int target){
+        int num = 0;
+        int tcount=0;
+        for(int ele : nums){
+            if(ele == target) tcount++;
+            else if(ele < target) num++;
+        }
+        List<Integer> ans = new ArrayList<>();
+        while(tcount > 0){
+            ans.add(num);
+            num++;
+            tcount--;
+        }
+        return ans;
     }
 }
