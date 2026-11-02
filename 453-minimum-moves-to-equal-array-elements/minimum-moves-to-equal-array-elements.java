@@ -1,17 +1,30 @@
-class Solution {
-    public int minMoves(int[] nums) {
+// class Solution {
+//     public int minMoves(int[] nums) {
+//         int min = Integer.MAX_VALUE;
+
+//         for (int num : nums) {
+//             min = Math.min(min, num);
+//         }
+
+//         int moves = 0;
+
+//         for (int num : nums) {
+//             moves += num - min;
+//         }
+
+//         return moves;
+//     }
+// }
+
+
+class Solution{
+    public int minMoves(int[] nums){
         int min = Integer.MAX_VALUE;
-
-        for (int num : nums) {
-            min = Math.min(min, num);
-        }
-
+        for(int num : nums) min = Math.min(num, min);
         int moves = 0;
-
-        for (int num : nums) {
+        for(int num : nums){
             moves += num - min;
         }
-
         return moves;
     }
 }
