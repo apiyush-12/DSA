@@ -12,6 +12,20 @@
 // }
 
 
+// class Solution{
+//     public boolean canAliceWin(int n){
+//         int take = 10;
+//         int move = 0;
+//         while(n >= take){
+//             n -= take;
+//             take--;
+//             move++;
+//         }
+//         return move % 2 == 1;
+//     }
+// }
+
+
 class Solution{
     public boolean canAliceWin(int n){
         int take = 10;
